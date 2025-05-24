@@ -1,0 +1,84 @@
+/*
+ * gimmick.css
+ */
+
+/*
+ * Unlock <button> when checkbox is checked
+ *
+ * @example
+ * ```html
+ * <label class="-trigger-unlock-checkbox">
+ *   <input type="checkbox">
+ *   <span>Agree the rules</span>
+ * </label>
+ * <br>
+ * <button class="-aim-unlock"
+ *   type="submit"
+ * >
+ *   Submit
+ * </button>
+ * ```
+ */
+.-trigger-unlock-checkbox:where(
+  input[type=checkbox]:not(:checked),
+  :has(input[type=checkbox]:not(:checked))
+) ~ :where(
+  .-aim-unlock,
+  * .-aim-unlock
+) {
+  pointer-events: none;
+  filter: saturate(0);
+}
+
+/*
+ * Unlock <button> when radio is checked
+ *
+ * @example
+ * ```html
+ * <label class="-trigger-unlock-radio">
+ *   <input type="radio" name="radio-group">
+ *   <span>Alpha</span>
+ * </label>
+ * <label class="-trigger-unlock-radio">
+ *   <input type="radio" name="radio-group">
+ *   <span>Beta</span>
+ * </label>
+ * <label class="-trigger-unlock-radio">
+ *   <input type="radio" name="radio-group">
+ *   <span>Gamma</span>
+ * </label>
+ * <br>
+ * <button class="-aim-unlock"
+ *   type="submit"
+ * >
+ *   Submit
+ * </button>
+ * ```
+ */
+.-trigger-unlock-radio ~ :where(
+  .-aim-unlock,
+  * .-aim-unlock
+) {
+  pointer-events: none;
+  filter: saturate(0);
+}
+
+.-trigger-unlock-radio:is(
+  input[type=radio]:checked,
+  :has(input[type=radio]:checked)
+) ~ :where(
+  .-aim-unlock,
+  * .-aim-unlock
+) {
+  pointer-events: inherit;
+  filter: inherit;
+}
+
+/******************************************************************************/
+
+/*
+ * Lock <body> on open <dialog>
+ */
+body:has(dialog[open]) {
+  overflow: hidden;
+}

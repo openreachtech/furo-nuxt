@@ -1,0 +1,11 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "types": [
+      "jest"
+    ]
+  }
+}

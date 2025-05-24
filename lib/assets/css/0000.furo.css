@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/**
+ * Furo design for HTML tags
+ *
+ * all selectors are composed by the tag name followed by ".furo"
+ */
+
+@layer
+  reset, /* Reset styles for native HTML elements */
+  base,  /* Base design system for native HTML elements */
+  furo,  /* Furo component library */
+  app;   /* Application components extended from Furo */

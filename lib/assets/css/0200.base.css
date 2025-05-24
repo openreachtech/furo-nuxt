@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/**
+ * Usual design for HTML tags
+ *
+ * all selectors are composed by the tag name followed by ".usual"
+ */
+
+/*
+ * Usual design for <button>
+ */
+
+@layer base {
+  /*
+   * Base design for <button>
+   */
+  button:not([class]) {
+    border: none;
+    border-radius: 0.25rem;
+
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+
+    display: inline-block;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+  }
+
+  button:not([class]):hover {
+    opacity: 0.75;
+  }
+
+  button:not([class]):disabled {
+    filter: grayscale(100%);
+  }
+
+  /*
+   * Base design for <input>
+   */
+  input {
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+  }
+
+  /*
+   * Base design for <section>
+   */
+  section + section {
+    margin-block-start: 2rem;
+  }
+
+  /*
+   * Base design for <p>
+   */
+  p + p {
+    margin-block-start: 1.5rem;
+  }
+
+  /*
+   * Base design for <h1> ~ <h6>
+   */
+
+  /* <h1> for page title */
+  h1 {
+    font-size: 2rem;
+
+    text-transform: capitalize;
+  }
+
+  h1 + * {
+    margin-block-start: 2rem;
+  }
+
+  /* <h2> for <section> */
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h2 + * {
+    margin-block-start: 1.5rem;
+  }
+
+  /* <h3> */
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h3 + * {
+    margin-block-start: 1.2rem;
+  }
+
+  /*
+   * z-index layers
+   */
+  header,
+  nav {
+    z-index: calc(var(--value-z-index-layer-staying) + 0);
+  }
+}

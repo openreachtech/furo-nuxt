@@ -1,0 +1,39 @@
+:root {
+  /* Palette */
+  --palette-black: #000;
+  --palette-blue: #37f;
+  --palette-blue-light: #69f;
+  --palette-gray: #bcbcbc;
+  --palette-gray-light: #f7f7f7;
+  --palette-white: #fff;
+
+  --palette-ivory: #fefefe;
+  --palette-silver: #eee;
+
+  /* Colors */
+  --color-primary: var(--palette-blue);
+  --color-secondary: var(--palette-yellow-300);
+
+  /* Backgrounds */
+  --color-background: var(--palette-gray-light);
+  --color-background-content: var(--palette-silver);
+
+  --color-background-header: var(--palette-ivory);
+  --color-background-nav: var(--palette-ivory);
+
+  /* Text */
+  --color-text: var(--palette-black);
+  --color-text-primary: var(--palette-white);
+  --color-text-secondary: var(--palette-black);
+
+  /* Sizes */
+  --size-thinnest: 1px;
+
+  --size-screen-height: 100dvh;
+  --size-header-height: 4.5rem;
+  --size-footer-height: 6rem;
+  --size-nav-width: 15rem;
+
+  /* Values */
+  --value-golden-ratio: 1.618;
+}

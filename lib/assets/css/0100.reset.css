@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+@layer reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  dl {
+    margin: 0;
+    padding: 0;
+  }
+
+  dt,
+  dd {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  audio,
+  canvas,
+  embed,
+  iframe,
+  img,
+  object,
+  picture,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: 0;
+    margin-inline: 0;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    line-height: 1;
+  }
+
+  p {
+    margin: 0;
+    line-height: var(--value-golden-ratio);
+  }
+
+  dialog {
+    border: none;
+
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  button {
+    border: none;
+
+    background: none;
+
+    padding-block: 0;
+    padding-inline: 0;
+
+    line-height: 1;
+
+    cursor: pointer;
+  }
+
+  fieldset {
+    margin-inline: 0;
+
+    border: none;
+
+    padding-block: 0;
+    padding-inline: 0;
+  }
+}

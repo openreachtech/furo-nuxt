@@ -1,0 +1,9 @@
+:root {
+  /*
+   * z-index layers
+   * (max-value: 2147483647)
+   */
+  --value-z-index-layer-content: 0000000;
+  --value-z-index-layer-staying: 1000000;
+  --value-z-index-layer-overlay: 2000000;
+}

@@ -1,0 +1,13 @@
+:root {
+  --color-background: var(--palette-gray-050);
+  --color-text: var(--palette-gray-950);
+  --color-border: var(--palette-gray-800);
+
+  --color-background-highlight: var(--palette-gray-800);
+  --color-text-highlight: var(--palette-gray-200);
+
+  --color-background-hover: var(--palette-gray-600);
+  --color-text-hover: var(--palette-gray-200);
+
+  --color-disabled: var(--palette-gray-300);
+}

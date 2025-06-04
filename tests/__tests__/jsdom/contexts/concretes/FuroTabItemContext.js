@@ -25,6 +25,7 @@ describe('FuroTabItemContext', () => {
         test.each(cases)('tabKey: $params.tabKey', ({ params }) => {
           const args = {
             tabKey: params.tabKey,
+            slotName: 'tabControl',
             label: 'Test Tab',
             index: 999,
           }
@@ -58,6 +59,7 @@ describe('FuroTabItemContext', () => {
         test.each(cases)('label: $params.label', ({ params }) => {
           const args = {
             tabKey: 'test-tab',
+            slotName: 'tabControl',
             label: params.label,
             index: 999,
           }
@@ -91,6 +93,7 @@ describe('FuroTabItemContext', () => {
         test.each(cases)('index: $params.index', ({ params }) => {
           const args = {
             tabKey: 'test-tab',
+            slotName: 'tabControl',
             label: 'Test Tab',
             index: params.index,
           }
@@ -99,6 +102,45 @@ describe('FuroTabItemContext', () => {
 
           expect(context)
             .toHaveProperty('index', params.index)
+        })
+      })
+
+      describe('#slotName', () => {
+        const cases = [
+          {
+            params: {
+              slotName: 'tabControl',
+            },
+          },
+          {
+            params: {
+              slotName: 'alphaTabControl',
+            },
+          },
+          {
+            params: {
+              slotName: 'betaTabControl',
+            },
+          },
+          {
+            params: {
+              slotName: 'gammaTabControl',
+            },
+          },
+        ]
+
+        test.each(cases)('index: $params.index', ({ params }) => {
+          const args = {
+            tabKey: 'test-tab',
+            slotName: params.slotName,
+            label: 'Test Tab',
+            index: 999,
+          }
+
+          const context = new FuroTabItemContext(args)
+
+          expect(context)
+            .toHaveProperty('slotName', params.slotName)
         })
       })
     })
@@ -130,6 +172,30 @@ describe('FuroTabItemContext', () => {
             index: 2,
           },
         },
+        {
+          params: {
+            tabKey: 'alpha',
+            slotName: 'alpha',
+            label: 'Alpha',
+            index: 0,
+          },
+        },
+        {
+          params: {
+            tabKey: 'beta',
+            slotName: 'beta',
+            label: 'Beta',
+            index: 1,
+          },
+        },
+        {
+          params: {
+            tabKey: 'gamma',
+            slotName: 'gamma',
+            label: 'Gamma',
+            index: 2,
+          },
+        },
       ]
 
       test.each(cases)('tabKey: $params.tabKey', ({ params }) => {
@@ -150,6 +216,21 @@ describe('FuroTabItemContext', () => {
           },
           expected: {
             tabKey: 'alpha',
+            slotName: 'tabControl',
+            label: 'Alpha',
+            index: 0,
+          },
+        },
+        {
+          params: {
+            tabKey: 'alpha',
+            slotName: 'alpha',
+            label: 'Alpha',
+            index: 0,
+          },
+          expected: {
+            tabKey: 'alpha',
+            slotName: 'alphaTabControl',
             label: 'Alpha',
             index: 0,
           },
@@ -162,6 +243,21 @@ describe('FuroTabItemContext', () => {
           },
           expected: {
             tabKey: 'beta',
+            slotName: 'tabControl',
+            label: 'Beta',
+            index: 1,
+          },
+        },
+        {
+          params: {
+            tabKey: 'beta',
+            slotName: 'beta',
+            label: 'Beta',
+            index: 1,
+          },
+          expected: {
+            tabKey: 'beta',
+            slotName: 'betaTabControl',
             label: 'Beta',
             index: 1,
           },
@@ -174,6 +270,21 @@ describe('FuroTabItemContext', () => {
           },
           expected: {
             tabKey: 'gamma',
+            slotName: 'tabControl',
+            label: 'Gamma',
+            index: 2,
+          },
+        },
+        {
+          params: {
+            tabKey: 'gamma',
+            slotName: 'gamma',
+            label: 'Gamma',
+            index: 2,
+          },
+          expected: {
+            tabKey: 'gamma',
+            slotName: 'gammaTabControl',
             label: 'Gamma',
             index: 2,
           },

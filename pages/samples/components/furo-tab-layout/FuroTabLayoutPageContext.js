@@ -52,6 +52,7 @@ export default class FuroTabLayoutPageContext extends BaseFuroContext {
    *
    * @returns {Array<{
    *   tabKey: string
+   *   slotName?: string
    *   label: string
    * }>}
    */
@@ -67,6 +68,7 @@ export default class FuroTabLayoutPageContext extends BaseFuroContext {
       },
       {
         tabKey: 'gamma',
+        slotName: 'gamma',
         label: 'Gamma',
       },
     ]

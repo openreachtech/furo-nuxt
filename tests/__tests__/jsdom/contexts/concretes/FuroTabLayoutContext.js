@@ -619,7 +619,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: alphaElement,
+            currentTarget: alphaElement,
           },
         }
 
@@ -671,7 +671,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: betaElement,
+            currentTarget: betaElement,
           },
         }
 
@@ -723,7 +723,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: gammaElement,
+            currentTarget: gammaElement,
           },
         }
 
@@ -822,7 +822,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: alphaElement,
+            currentTarget: alphaElement,
           },
         }
 
@@ -873,7 +873,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: betaElement,
+            currentTarget: betaElement,
           },
         }
 
@@ -924,7 +924,7 @@ describe('FuroTabLayoutContext', () => {
 
         const args = {
           event: {
-            target: gammaElement,
+            currentTarget: gammaElement,
           },
         }
 

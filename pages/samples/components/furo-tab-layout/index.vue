@@ -151,6 +151,55 @@ export default defineComponent({
       </FuroTabLayout>
     </section>
 
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- <FuroTabLayout> with custom slots -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <section class="unit-section">
+      <h3>&lt;FuroTabLayout&gt; with custom slots</h3>
+
+      <FuroTabLayout
+        :tabs="context.tabs"
+        :active-tab-key="context.tabs[0].tabKey"
+        class="design slot"
+      >
+        <template
+          #tabControl="{
+            label,
+          }"
+        >
+          <span class="unit-tab control">
+            <span>\(-.-)/</span>
+            <span>{{ label }}</span>
+          </span>
+        </template>
+
+        <template
+          #gammaTabControl="{
+            label,
+          }"
+        >
+          <span class="unit-tab control gamma">
+            <span>I'm gamma \_(.-.)_/ from everyone else.</span>
+            <span>Because I am the {{ label }}.</span>
+          </span>
+        </template>
+
+        <template #contents>
+          <div class="alpha">
+            Alpha Content
+          </div>
+
+          <div class="beta">
+            Beta Content
+          </div>
+
+          <div class="gamma">
+            Gamma Content
+          </div>
+        </template>
+      </FuroTabLayout>
+    </section>
+
     <br>
     <br>
 
@@ -207,6 +256,54 @@ export default defineComponent({
           </div>
         </template>
       </AppTabLayout>
+    </section>
+
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- <AppTabLayout> with custom slots -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <section class="unit-section">
+      <h3>&lt;AppTabLayout&gt; with custom slots</h3>
+
+      <FuroTabLayout
+        :tabs="context.tabs"
+        :active-tab-key="context.tabs[0].tabKey"
+        class="design slot"
+      >
+        <template
+          #tabControl="{
+            label,
+          }"
+        >
+          <span class="unit-tab control">
+            <span>--> [Click to switch to {{ label }}] <--</span>
+          </span>
+        </template>
+
+        <template
+          #gammaTabControl="{
+            label,
+          }"
+        >
+          <span class="unit-tab control gamma">
+            <span>Don't switch to me</span>
+            <span>Because I am the {{ label }}.</span>
+          </span>
+        </template>
+
+        <template #contents>
+          <div class="alpha">
+            Alpha Content
+          </div>
+
+          <div class="beta">
+            Beta Content
+          </div>
+
+          <div class="gamma">
+            Gamma Content
+          </div>
+        </template>
+      </FuroTabLayout>
     </section>
   </div>
 </template>
@@ -286,5 +383,20 @@ export default defineComponent({
 
   padding-block: 0.5rem;
   padding-inline: 1rem;
+}
+
+.unit-tab.control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-weight: 500;
+}
+
+.unit-tab.control.gamma {
+  flex-direction: column;
+  align-items: start;
+
+  font-weight: 700;
 }
 </style>

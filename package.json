@@ -1,6 +1,6 @@
 {
   "name": "@openreachtech/furo-nuxt",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "furo for Nuxt",
   "main": "index.js",
   "files": [
@@ -25,7 +25,7 @@
   "author": "Open Reach Tech Inc.",
   "license": "MIT",
   "dependencies": {
-    "@openreachtech/furo": "^1.8.0",
+    "@openreachtech/furo": "^1.9.0",
     "core-js": "^3.38.0",
     "nuxt": "^3.12.4",
     "vue": "^3.4.38",

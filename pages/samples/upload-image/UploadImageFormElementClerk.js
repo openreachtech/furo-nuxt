@@ -5,7 +5,7 @@ import {
 /**
  * Clerk class of upload image form element.
  *
- * @extends {BaseFormElementClerk<typeof UploadImageFormElementClerk, UploadImageFormValueHash, SchemaVariableHash>}
+ * @extends {BaseFormElementClerk<UploadImageFormValueHash>}
  */
 export default class UploadImageFormElementClerk extends BaseFormElementClerk {
   /** @override */
@@ -29,10 +29,4 @@ export default class UploadImageFormElementClerk extends BaseFormElementClerk {
  * @typedef {{
  *   image: File
  * }} UploadImageFormValueHash
- */
-
-/**
- * @typedef {{
- *   image: File
- * }} SchemaVariableHash
  */

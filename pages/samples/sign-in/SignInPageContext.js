@@ -74,7 +74,7 @@ export default class SignInPageContext extends BaseFuroContext {
   /**
    * get: graphqlRequestHooks.
    *
-   * @returns {furo.GraphqlLauncherHooks<>} - GraphQL request hooks.
+   * @returns {GraphqlType.LauncherHooks<>} - GraphQL request hooks.
    */
   get graphqlRequestHooks () {
     return {
@@ -151,7 +151,7 @@ export default class SignInPageContext extends BaseFuroContext {
    *
    * @template {import('../../../app/graphql/client/mutations/signIn/SignInMutationGraphqlPayload.js').default} P
    * @template {import('../../../app/graphql/client/mutations/signIn/SignInMutationGraphqlCapsule.js').default} C
-   * @returns {furo.GraphqlLauncherHooks<P, C>} - Hooks for the form clerk.
+   * @returns {GraphqlType.LauncherHooks<P, C>} - Hooks for the form clerk.
    */
   generateHooks () {
     return {
@@ -218,7 +218,7 @@ export default class SignInPageContext extends BaseFuroContext {
  *   validationRef: import('vue').Ref<furo.ValidatorHashType>
  *   submitForm: (args: {
  *     formElement: HTMLFormElement
- *     hooks?: furo.GraphqlLauncherHooks<
+ *     hooks?: GraphqlType.LauncherHooks<
  *       import('../../../app/graphql/client/mutations/signIn/SignInMutationGraphqlPayload.js').default,
  *       import('../../../app/graphql/client/mutations/signIn/SignInMutationGraphqlCapsule.js').default
  *     >

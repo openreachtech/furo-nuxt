@@ -94,7 +94,7 @@ export default class UploadImagePageContext extends BaseFuroContext {
   /**
    * get: capsule reference.
    *
-   * @returns {import('vue').Ref<furo.Capsule<*> | null>} - Capsule reference.
+   * @returns {import('vue').Ref<GraphqlType.Capsule<*> | null>} - Capsule reference.
    */
   get capsuleRef () {
     return this.graphqlClient.capsuleRef
@@ -103,7 +103,7 @@ export default class UploadImagePageContext extends BaseFuroContext {
   /**
    * get: launcher hooks.
    *
-   * @returns {furo.GraphqlLauncherHooks} - Launcher hooks.
+   * @returns {GraphqlType.LauncherHooks} - Launcher hooks.
    */
   get launcherHooks () {
     return {

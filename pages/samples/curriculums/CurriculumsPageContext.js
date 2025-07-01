@@ -106,8 +106,8 @@ export default class CurriculumsPageContext extends BaseFuroContext {
    * get: graphqlRequestHooks.
    *
    * @returns {{
-   *   beforeRequest: (payload: furo.Payload<*>) => Promise<boolean>
-   *   afterRequest: (capsule: furo.Capsule<*>) => Promise<void>
+   *   beforeRequest: (payload: GraphqlType.Payload<*>) => Promise<boolean>
+   *   afterRequest: (capsule: GraphqlType.Capsule<*>) => Promise<void>
    * }}
    */
   get graphqlRequestHooks () {
@@ -126,7 +126,7 @@ export default class CurriculumsPageContext extends BaseFuroContext {
   /**
    * get: launcher hooks.
    *
-   * @returns {furo.GraphqlLauncherHooks} - Launcher hooks.
+   * @returns {GraphqlType.LauncherHooks} - Launcher hooks.
    */
   get launcherHooks () {
     return {
@@ -146,7 +146,7 @@ export default class CurriculumsPageContext extends BaseFuroContext {
    *
    * @param {{
    *   offset?: number
-   *   hooks?: furo.GraphqlLauncherHooks
+   *   hooks?: GraphqlType.LauncherHooks
    * }} [args] - Arguments.
    * @returns {Promise<void>} - A promise.
    */

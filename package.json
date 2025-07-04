@@ -25,7 +25,7 @@
   "author": "Open Reach Tech Inc.",
   "license": "MIT",
   "dependencies": {
-    "@openreachtech/furo": "^1.9.0",
+    "@openreachtech/furo": "^1.10.0",
     "core-js": "^3.38.0",
     "nuxt": "^3.12.4",
     "vue": "^3.4.38",

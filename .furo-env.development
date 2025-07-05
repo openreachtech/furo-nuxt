@@ -1,2 +1,4 @@
 ENDPOINT_URL = http://localhost:3900/graphql-customer
 WEBSOCKET_URL = ws://localhost:3900/graphql-customer
+
+RENCHAN_RESTFUL_API_BASE_URL = 'http://localhost:8001'

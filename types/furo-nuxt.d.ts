@@ -8,12 +8,12 @@ import FuroShare from '../lib/shares/FuroShare.js'
 import FuroGraphqlShare from '~/lib/shares/FuroGraphqlShare.js'
 
 interface GraphqlClient {
-  capsuleRef: Ref<furo.Capsule<*>>
-  invokeRequestOnEvent: (args?: furo.GraphqlRequestArgs) => Promise<void>
-  invokeRequestOnMounted: (args?: furo.GraphqlRequestArgs) => void
+  capsuleRef: Ref<GraphqlType.Capsule<*>>
+  invokeRequestOnEvent: (args?: GraphqlType.RequestArgs) => Promise<void>
+  invokeRequestOnMounted: (args?: GraphqlType.RequestArgs) => void
   invokeRequestWithFormValueHash?: (args: {
     valueHash: Record<string, any>
-    hooks?: furo.GraphqlLauncherHooks
+    hooks?: GraphqlType.LauncherHooks
   }) => Promise<void>
 }
 
@@ -21,7 +21,7 @@ interface FormClerk {
   validationRef: Ref<furo.FormValidation>
   submitForm: (args?: {
     formElement: HTMLFormElement
-    hooks?: furo.GraphqlLauncherHooks
+    hooks?: GraphqlType.LauncherHooks
     options?: RequestInit
     extraValueHash?: Record<string, any>
   }) => Promise<boolean>

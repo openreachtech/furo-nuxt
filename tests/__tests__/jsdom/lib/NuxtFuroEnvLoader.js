@@ -392,6 +392,8 @@ describe('NuxtFuroEnvLoader', () => {
             expected: {
               ENDPOINT_URL: 'http://localhost:3900/graphql-customer',
               WEBSOCKET_URL: 'ws://localhost:3900/graphql-customer',
+
+              RENCHAN_RESTFUL_API_BASE_URL: 'http://localhost:8001',
             },
           },
           {
@@ -403,6 +405,8 @@ describe('NuxtFuroEnvLoader', () => {
             expected: {
               ENDPOINT_URL: 'http://localhost:3900/graphql-stub',
               TEST_MESSAGE: 'I am .furo-env.test',
+
+              RENCHAN_RESTFUL_API_BASE_URL: 'http://localhost:8001',
             },
           },
         ]

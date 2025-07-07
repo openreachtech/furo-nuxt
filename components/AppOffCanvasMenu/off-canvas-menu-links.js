@@ -27,6 +27,12 @@ export default {
       href: '/samples/pagination-articles',
     }),
   ],
+  'RESTful API': [
+    LinkItemContext.create({
+      text: 'RESTful API Client',
+      href: '/samples/restfulapi',
+    }),
+  ],
   Features: [
     LinkItemContext.create({
       text: 'Form Controls Inspector',

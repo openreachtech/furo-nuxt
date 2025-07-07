@@ -33,6 +33,7 @@ describe('BaseFormClerk', () => {
             formElementShallowRef: input.formElementShallowRef,
             validationRef: mockValidationRef,
           }
+
           const clerk = new BaseFormClerk(args)
 
           expect(clerk)
@@ -61,6 +62,7 @@ describe('BaseFormClerk', () => {
             formElementShallowRef: mockFormElementShallowRef,
             validationRef: input.validationRef,
           }
+
           const clerk = new BaseFormClerk(args)
 
           expect(clerk)

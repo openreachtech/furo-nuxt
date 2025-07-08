@@ -8,7 +8,7 @@ import {
 } from '#imports'
 
 export default defineComponent({
-  name: 'RestfulApiClientPage',
+  name: 'RestfulApiSamplePage',
 
   setup (
     props,

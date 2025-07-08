@@ -1,16 +1,16 @@
 import BaseAppRenchanRestfulApiPayload from '~/app/restfulapi/renchan/BaseAppRenchanRestfulApiPayload.js'
 
 import {
-  BaseRestfulApiPayload,
+  BaseRenchanRestfulApiPayload,
 } from '@openreachtech/furo'
 
 describe('BaseAppRenchanRestfulApiPayload', () => {
   describe('inheritance', () => {
-    test('should be a subclass of BaseRestfulApiPayload', () => {
+    test('should be a subclass of BaseRenchanRestfulApiPayload', () => {
       const actual = BaseAppRenchanRestfulApiPayload.prototype
 
       expect(actual)
-        .toBeInstanceOf(BaseRestfulApiPayload)
+        .toBeInstanceOf(BaseRenchanRestfulApiPayload)
     })
   })
 })

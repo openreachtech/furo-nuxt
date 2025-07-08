@@ -2,8 +2,6 @@ import BaseFuroContext from '~/lib/contexts/BaseFuroContext.js'
 
 import SampleFormElementClerk from './SampleFormElementClerk.js'
 
-const Timber = console
-
 /**
  * FormControlsInspectorPageContext.
  *
@@ -72,11 +70,6 @@ export default class FormControlsInspectorPageContext extends BaseFuroContext {
     })
 
     const valueHash = formElementClerk.extractValueHash()
-
-    await Timber.log(
-      '🔥 formElementClerk.extractValueHash()',
-      valueHash
-    )
 
     this.valueHashRef.value = valueHash
   }

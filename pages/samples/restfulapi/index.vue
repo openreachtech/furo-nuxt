@@ -9,6 +9,7 @@ import {
 
 import RestfulApiSamplePageContext from './RestfulApiSamplePageContext.js'
 import RestfulApiSampleFetcher from './RestfulApiSampleFetcher.js'
+import RestfulApiSampleSubmitterContext from './RestfulApiSampleSubmitterContext.js'
 
 export default defineComponent({
   name: 'RestfulApiSamplePage',
@@ -35,8 +36,16 @@ export default defineComponent({
     const context = RestfulApiSamplePageContext.create(args)
       .setupComponent()
 
+    const submitterContext = RestfulApiSampleSubmitterContext.create({
+      props,
+      componentContext,
+      fetcher,
+    })
+      .setupComponent()
+
     return {
       context,
+      submitterContext,
     }
   },
 })
@@ -119,6 +128,87 @@ export default defineComponent({
     </div>
   </section>
 
+  <section class="unit-section">
+    <h1>Beta External Callback Success (POST)</h1>
+
+    <form
+      :ref="submitterContext.betaExternalCallbackSuccessFormElementShallowRef"
+      @submit.prevent="submitterContext.submitForm({
+        submitEvent: /** @type {SubmitEvent} */ ($event),
+      })"
+    >
+      <label>
+        <div>First Parameter</div>
+        <input
+          type="text"
+          name="first"
+          value="first value"
+        >
+      </label>
+      <label>
+        <div>Second Parameter</div>
+        <input
+          type="text"
+          name="second"
+          value="second value"
+        >
+      </label>
+
+      <br>
+      <br>
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+
+    <br>
+
+    <div class="unit-layout result-placeholder">
+      <div>
+        <h2 class="subtitle">
+          Metadata of Capsule
+        </h2>
+        <pre class="capsule-placeholder">{{
+          JSON.stringify(
+            {
+              statusCode: submitterContext.betaExternalCallbackSuccessCapsule.statusCode,
+              statusText: submitterContext.betaExternalCallbackSuccessCapsule.statusText,
+              errorMessage: submitterContext.betaExternalCallbackSuccessCapsule.getErrorMessage(),
+            },
+            null,
+            2
+          )
+        }}</pre>
+      </div>
+      <div>
+        <h2 class="subtitle">
+          Content of Capsule
+        </h2>
+        <pre class="capsule-placeholder">{{
+          JSON.stringify(
+            submitterContext.betaExternalCallbackSuccessCapsule.content,
+            null,
+            2
+          )
+        }}</pre>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </section>
+
   <div
     v-if="context.isLoading"
     class="unit-loading"
@@ -183,6 +273,32 @@ export default defineComponent({
 
 .unit-test-account > .details {
   font-style: italic;
+}
+
+/* ---------------------------------------- */
+
+.unit-layout.result-placeholder {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.unit-layout.result-placeholder > :nth-child(2) {
+  flex: 1;
+}
+
+.unit-layout.result-placeholder .subtitle {
+  margin-block-start: 1.5rem;
+
+  white-space: nowrap;
+}
+
+.unit-layout.result-placeholder .subtitle + .capsule-placeholder {
+  margin-block: 0.5rem;
+
+  white-space: pre-wrap;
 }
 
 /* ---------------------------------------- */

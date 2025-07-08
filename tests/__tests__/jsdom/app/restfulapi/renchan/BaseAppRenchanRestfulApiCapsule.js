@@ -1,16 +1,16 @@
 import BaseAppRenchanRestfulApiCapsule from '~/app/restfulapi/renchan/BaseAppRenchanRestfulApiCapsule.js'
 
 import {
-  BaseRestfulApiCapsule,
+  BaseRenchanRestfulApiCapsule,
 } from '@openreachtech/furo'
 
 describe('BaseAppRenchanRestfulApiCapsule', () => {
   describe('inheritance', () => {
-    test('should be a subclass of BaseRestfulApiCapsule', () => {
+    test('should be a subclass of BaseRenchanRestfulApiCapsule', () => {
       const actual = BaseAppRenchanRestfulApiCapsule.prototype
 
       expect(actual)
-        .toBeInstanceOf(BaseRestfulApiCapsule)
+        .toBeInstanceOf(BaseRenchanRestfulApiCapsule)
     })
   })
 })

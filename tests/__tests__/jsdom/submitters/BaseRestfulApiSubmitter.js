@@ -497,6 +497,231 @@ describe('BaseRestfulApiSubmitter', () => {
 })
 
 describe('BaseRestfulApiSubmitter', () => {
+  describe('#get:formElementShallowRef', () => {
+    describe('should be #formClerk.formElementShallowRef', () => {
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const AlphaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const BetaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      const AlphaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return AlphaRestfulApiCapsule
+        }
+      }
+      const BetaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return BetaRestfulApiCapsule
+        }
+      }
+
+      const AlphaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (AlphaRestfulApiLauncher)
+        }
+      }
+      const BetaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (BetaRestfulApiLauncher)
+        }
+      }
+
+      const cases = [
+        {
+          input: {
+            Submitter: AlphaRestfulApiSubmitter,
+          },
+        },
+        {
+          input: {
+            Submitter: BetaRestfulApiSubmitter,
+          },
+        },
+      ]
+
+      test.each(cases)('Submitter: $input.Submitter.name', ({ input }) => {
+        const submitter = input.Submitter.create()
+        const expected = submitter.formClerk.formElementShallowRef
+
+        const actual = submitter.formElementShallowRef
+
+        expect(actual)
+          .toBe(expected) // same reference
+      })
+    })
+  })
+})
+
+describe('BaseRestfulApiSubmitter', () => {
+  describe('#get:validationRef', () => {
+    describe('should be #formClerk.validationRef', () => {
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const AlphaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const BetaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      const AlphaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return AlphaRestfulApiCapsule
+        }
+      }
+      const BetaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return BetaRestfulApiCapsule
+        }
+      }
+
+      const AlphaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (AlphaRestfulApiLauncher)
+        }
+      }
+      const BetaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (BetaRestfulApiLauncher)
+        }
+      }
+
+      const cases = [
+        {
+          input: {
+            Submitter: AlphaRestfulApiSubmitter,
+          },
+        },
+        {
+          input: {
+            Submitter: BetaRestfulApiSubmitter,
+          },
+        },
+      ]
+
+      test.each(cases)('Submitter: $input.Submitter.name', ({ input }) => {
+        const submitter = input.Submitter.create()
+        const expected = submitter.formClerk.validationRef
+
+        const actual = submitter.validationRef
+
+        expect(actual)
+          .toBe(expected) // same reference
+      })
+    })
+  })
+})
+
+describe('BaseRestfulApiSubmitter', () => {
+  describe('#get:capsuleRef', () => {
+    describe('should be #restfulApiClient.capsuleRef', () => {
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const AlphaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      /**
+       * @extends {BaseRestfulApiCapsule<*>}
+       */
+      const BetaRestfulApiCapsule = class extends BaseRestfulApiCapsule {}
+
+      const AlphaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return AlphaRestfulApiCapsule
+        }
+      }
+      const BetaRestfulApiLauncher = class extends BaseRestfulApiLauncher {
+        /** @override */
+        static get Capsule () {
+          return BetaRestfulApiCapsule
+        }
+      }
+
+      const AlphaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (AlphaRestfulApiLauncher)
+        }
+      }
+      const BetaRestfulApiSubmitter = class extends BaseRestfulApiSubmitter {
+        /** @override */
+        static get FormClerkCtor () {
+          return /** @type {*} */ (class extends BaseFormClerk {})
+        }
+
+        /** @override */
+        static get RestfulApiLauncherCtor () {
+          return /** @type {*} */ (BetaRestfulApiLauncher)
+        }
+      }
+
+      const cases = [
+        {
+          input: {
+            Submitter: AlphaRestfulApiSubmitter,
+          },
+        },
+        {
+          input: {
+            Submitter: BetaRestfulApiSubmitter,
+          },
+        },
+      ]
+
+      test.each(cases)('Submitter: $input.Submitter.name', ({ input }) => {
+        const submitter = input.Submitter.create()
+        const expected = submitter.restfulApiClient.capsuleRef
+
+        const actual = submitter.capsuleRef
+
+        expect(actual)
+          .toBe(expected) // same reference
+      })
+    })
+  })
+})
+
+describe('BaseRestfulApiSubmitter', () => {
   describe('#submitForm()', () => {
     const AlphaFormClerk = class extends BaseFormClerk {}
     const BetaFormClerk = class extends BaseFormClerk {}

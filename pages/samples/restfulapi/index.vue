@@ -82,6 +82,43 @@ export default defineComponent({
     </div>
   </section>
 
+  <section class="unit-section">
+    <h1>Path Parameter Hash (GET)</h1>
+
+    <div class="buttons">
+      <button
+        @click="context.fetchPathParameterHash({
+          pathParameterHash: {
+            id: 123,
+            name: 'JohnDoe',
+          },
+        })"
+      >
+        { id: 123, name 'JohnDoe' }
+      </button>
+      <button
+        @click="context.fetchPathParameterHash({
+          pathParameterHash: {
+            id: 987,
+            name: 'JaneSmith',
+          },
+        })"
+      >
+        { id: 987, name 'JaneSmith' }
+      </button>
+    </div>
+
+    <div>
+      <pre class="capsule-placeholder">{{
+        JSON.stringify(
+          context.pathParameterHashCapsule.content,
+          null,
+          2
+        )
+      }}</pre>
+    </div>
+  </section>
+
   <div
     v-if="context.isLoading"
     class="unit-loading"

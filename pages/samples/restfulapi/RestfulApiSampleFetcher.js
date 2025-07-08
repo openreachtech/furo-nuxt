@@ -5,6 +5,7 @@ import {
 import RestfulApiClient from '~/lib/clients/RestfulApiClient.js'
 
 import AlphaExternalCallbackSuccessGetRenchanRestfulApiLauncher from '~/app/restfulapi/renchan/get/alphaExternalCallbackSuccess/AlphaExternalCallbackSuccessGetRenchanRestfulApiLauncher.js'
+import PathParameterHashGetRenchanRestfulApiLauncher from '~/app/restfulapi/renchan/get/pathParameterHash/PathParameterHashGetRenchanRestfulApiLauncher.js'
 
 /**
  * RESTful API client sample page fetcher.
@@ -63,9 +64,11 @@ export default class RestfulApiSampleFetcher {
    */
   static buildRestfulApiClientHash () {
     const alphaExternalCallbackSuccessClient = RestfulApiClient.create(AlphaExternalCallbackSuccessGetRenchanRestfulApiLauncher)
+    const pathParameterHashClient = RestfulApiClient.create(PathParameterHashGetRenchanRestfulApiLauncher)
 
     return {
       alphaExternalCallbackSuccess: alphaExternalCallbackSuccessClient,
+      pathParameterHash: pathParameterHashClient,
     }
   }
 
@@ -97,6 +100,15 @@ export default class RestfulApiSampleFetcher {
   }
 
   /**
+   * get: pathParameterHash RESTful API client.
+   *
+   * @returns {RestfulApiClient<PathParameterHashGetRenchanRestfulApiLauncher.Capsule>} - Path parameter hash RESTful API client.
+   */
+  get pathParameterHashRestfulApiClient () {
+    return /** @type {*} */ (this.restfulApiClientHash.pathParameterHash)
+  }
+
+  /**
    * get: capsuleRef of alphaExternalCallbackSuccess RESTful API client.
    *
    * @returns {AlphaExternalCallbackSuccessGetRenchanRestfulApiLauncher.Capsule} - Capsule reference.
@@ -104,6 +116,18 @@ export default class RestfulApiSampleFetcher {
   get alphaExternalCallbackSuccessCapsule () {
     return /** @type {*} */ (
       this.alphaExternalCallbackSuccessRestfulApiClient.capsuleRef
+        .value
+    )
+  }
+
+  /**
+   * get: capsuleRef of pathParameterHash RESTful API client.
+   *
+   * @returns {PathParameterHashGetRenchanRestfulApiLauncher.Capsule} - Capsule reference.
+   */
+  get pathParameterHashCapsule () {
+    return /** @type {*} */ (
+      this.pathParameterHashRestfulApiClient.capsuleRef
         .value
     )
   }
@@ -132,6 +156,35 @@ export default class RestfulApiSampleFetcher {
         query: {
           alpha,
           beta,
+        },
+        hooks,
+      })
+  }
+
+  /**
+   * Invoke betaExternalCallbackSuccess RESTful API client.
+   *
+   * @param {{
+   *   pathParameterHash: {
+   *     id: number
+   *     name: string
+   *   }
+   *   hooks?: RestfulApiType.LauncherHooks<*>
+   * }} params - Parameters of this method.
+   * @returns {Promise<void>} - Promise that resolves when the request is completed.
+   */
+  async fetchPathParameterHashOnEvent ({
+    pathParameterHash: {
+      id,
+      name,
+    },
+    hooks = this.requestHooks,
+  }) {
+    await this.pathParameterHashRestfulApiClient
+      .invokeRequestOnEvent({
+        pathParameterHash: {
+          id,
+          name,
         },
         hooks,
       })

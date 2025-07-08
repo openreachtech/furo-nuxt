@@ -62,6 +62,17 @@ export default class RestfulApiSamplePageContext extends BaseFuroContext {
   }
 
   /**
+   * get: pathParameterHashCapsule.
+   *
+   * @returns {import('../../../app/restfulapi/renchan/get/pathParameterHash/PathParameterHashGetRenchanRestfulApiCapsule.js').default} - The capsule for pathParameterHash.
+   */
+  get pathParameterHashCapsule () {
+    return /** @type {*} */ (
+      this.fetcher.pathParameterHashCapsule
+    )
+  }
+
+  /**
    * Fetches the AlphaExternalCallbackSuccess data.
    *
    * @param {{
@@ -77,6 +88,25 @@ export default class RestfulApiSamplePageContext extends BaseFuroContext {
   }) {
     await this.fetcher.fetchAlphaExternalCallbackSuccessOnEvent({
       query,
+    })
+  }
+
+  /**
+   * Fetch pathParameterHash RESTful API content.
+   *
+   * @param {{
+   *   pathParameterHash: {
+   *     id: number
+   *     name: string
+   *   }
+   * }} params - Parameters for the fetch operation.
+   * @returns {Promise<void>} - A promise that resolves when the fetch is complete.
+   */
+  async fetchPathParameterHash ({
+    pathParameterHash,
+  }) {
+    await this.fetcher.fetchPathParameterHashOnEvent({
+      pathParameterHash,
     })
   }
 

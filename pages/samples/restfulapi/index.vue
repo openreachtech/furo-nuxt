@@ -7,6 +7,9 @@ import {
   definePageMeta,
 } from '#imports'
 
+import RestfulApiSamplePageContext from './RestfulApiSamplePageContext.js'
+import RestfulApiSampleFetcher from './RestfulApiSampleFetcher.js'
+
 export default defineComponent({
   name: 'RestfulApiSamplePage',
 
@@ -17,17 +20,74 @@ export default defineComponent({
     definePageMeta({
       $furo: {
         pageTitle: 'Renchan RESTful API client sample',
-        skipFilter: true,
+        // skipFilter: true,
       },
     })
 
-    return {}
+    const fetcher = RestfulApiSampleFetcher.create()
+
+    const args = {
+      props,
+      componentContext,
+
+      fetcher,
+    }
+    const context = RestfulApiSamplePageContext.create(args)
+      .setupComponent()
+
+    return {
+      context,
+    }
   },
 })
 </script>
 
 <template>
   <h1>Renchan RESTful API client Sample</h1>
+
+  <section class="unit-section">
+    <h1>Alpha External Callback Success (GET)</h1>
+
+    <div class="buttons">
+      <button
+        @click="context.fetchAlphaExternalCallbackSuccess({
+          query: {
+            alpha: '1st',
+            beta: '2nd',
+          },
+        })"
+      >
+        ?alpha=1st&beta=2nd
+      </button>
+      <button
+        @click="context.fetchAlphaExternalCallbackSuccess({
+          query: {
+            alpha: '3rd',
+            beta: '4th',
+          },
+        })"
+      >
+        ?alpha=3rd&beta=4th
+      </button>
+    </div>
+
+    <div>
+      <pre class="capsule-placeholder">{{
+        JSON.stringify(
+          context.alphaExternalCallbackSuccessCapsule.content,
+          null,
+          2
+        )
+      }}</pre>
+    </div>
+  </section>
+
+  <div
+    v-if="context.isLoading"
+    class="unit-loading"
+  >
+    Loading ...
+  </div>
 </template>
 
 <style scoped>

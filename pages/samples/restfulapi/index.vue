@@ -8,7 +8,7 @@ import {
 } from '#imports'
 
 export default defineComponent({
-  name: 'RestfulApiClientPage',
+  name: 'RestfulApiSamplePage',
 
   setup (
     props,
@@ -16,7 +16,7 @@ export default defineComponent({
   ) {
     definePageMeta({
       $furo: {
-        pageTitle: 'RESTful API client sample',
+        pageTitle: 'Renchan RESTful API client sample',
         skipFilter: true,
       },
     })
@@ -27,7 +27,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1>RESTful API client Sample</h1>
+  <h1>Renchan RESTful API client Sample</h1>
 </template>
 
 <style scoped>

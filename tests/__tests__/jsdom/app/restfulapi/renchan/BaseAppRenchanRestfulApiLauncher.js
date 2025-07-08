@@ -1,16 +1,16 @@
 import BaseAppRenchanRestfulApiLauncher from '~/app/restfulapi/renchan/BaseAppRenchanRestfulApiLauncher.js'
 
 import {
-  BaseRestfulApiLauncher,
+  BaseRenchanRestfulApiLauncher,
 } from '@openreachtech/furo'
 
 describe('BaseAppRenchanRestfulApiLauncher', () => {
   describe('inheritance', () => {
-    test('should be a subclass of BaseRestfulApiLauncher', () => {
+    test('should be a subclass of BaseRenchanRestfulApiLauncher', () => {
       const actual = BaseAppRenchanRestfulApiLauncher.prototype
 
       expect(actual)
-        .toBeInstanceOf(BaseRestfulApiLauncher)
+        .toBeInstanceOf(BaseRenchanRestfulApiLauncher)
     })
   })
 })

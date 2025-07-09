@@ -50,3 +50,8 @@ export { default as BaseFuroContextAccessor } from './lib/contexts/BaseFuroConte
  */
 export { default as FuroShare } from './lib/shares/FuroShare.js'
 export { default as FuroGraphqlShare } from './lib/shares/FuroGraphqlShare.js'
+
+/**
+ * RESTful API
+ */
+export { default as RestfulApiClient } from './lib/clients/RestfulApiClient.js'

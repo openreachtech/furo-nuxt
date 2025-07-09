@@ -150,6 +150,66 @@ export default class RestfulApiSampleSubmitterContext extends BaseFuroContext {
       },
     }
   }
+
+  /**
+   * get: Validation reference for the form.
+   *
+   * @returns {import('vue').Ref<furo.ValidatorHashType>} - Validation reference for the form.
+   */
+  get betaExternalCallbackSuccessValidationRef () {
+    return /** @type {*} */ (
+      this.submitterHash.betaExternalCallbackSuccess
+        .validationRef
+    )
+  }
+
+  /**
+   * get: Validation valid hash.
+   *
+   * @returns {Record<string, boolean>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationValidHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .invalid
+    )
+  }
+
+  /**
+   * get: Validation invalid hash.
+   *
+   * @returns {Record<string, boolean>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationInvalidHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .invalid
+    )
+  }
+
+  /**
+   * get: Validation message hash.
+   *
+   * @returns {Record<string, string>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationMessageHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .message
+    )
+  }
+
+  /**
+   * get: Validation messages hash.
+   *
+   * @returns {Record<string, Array<string>>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationMessagesHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .messages
+    )
+  }
 }
 
 /**

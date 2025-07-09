@@ -133,25 +133,47 @@ export default defineComponent({
 
     <form
       :ref="submitterContext.betaExternalCallbackSuccessFormElementShallowRef"
+      class="form"
       @submit.prevent="submitterContext.submitForm({
         submitEvent: /** @type {SubmitEvent} */ ($event),
       })"
     >
-      <label>
-        <div>First Parameter</div>
+      <label
+        class="control"
+      >
+        <div
+          :class="{
+            invalid: submitterContext.betaExternalCallbackSuccessValidationInvalidHash.first,
+          }"
+        >First</div>
         <input
           type="text"
           name="first"
-          value="first value"
+          value=""
+          class="input-field"
         >
+        <div class="invalid-feedback">{{
+          submitterContext.betaExternalCallbackSuccessValidationMessageHash.first
+        }}</div>
       </label>
-      <label>
-        <div>Second Parameter</div>
+
+      <label
+        class="control"
+      >
+        <div
+          :class="{
+            invalid: submitterContext.betaExternalCallbackSuccessValidationInvalidHash.second,
+          }"
+        >Second</div>
         <input
           type="text"
           name="second"
           value="second value"
+          class="input-field"
         >
+        <div class="invalid-feedback">{{
+          submitterContext.betaExternalCallbackSuccessValidationMessageHash.second
+        }}</div>
       </label>
 
       <br>
@@ -299,6 +321,35 @@ export default defineComponent({
   margin-block: 0.5rem;
 
   white-space: pre-wrap;
+}
+
+/* ---------------------------------------- */
+
+:root {
+  --color-text-error: var(--color-red);
+}
+
+.unit-section .form .control .invalid::after {
+  content: '❌️';
+
+  margin-inline-start: 0.5rem;
+}
+
+.unit-section .form .input-field {
+  min-width: min(15rem, 100%);
+}
+
+.unit-section .form .invalid-feedback {
+  margin-block-end: 0.5rem;
+
+  color: red;
+}
+
+.unit-section .form .invalid-feedback:empty {
+  content: ' ';
+
+  min-height: 1.5rem;
+  visibility: hidden;
 }
 
 /* ---------------------------------------- */

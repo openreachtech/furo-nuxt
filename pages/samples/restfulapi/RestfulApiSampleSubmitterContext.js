@@ -150,6 +150,18 @@ export default class RestfulApiSampleSubmitterContext extends BaseFuroContext {
       },
     }
   }
+
+  /**
+   * get: Validation reference for the form.
+   *
+   * @returns {import('vue').Ref<furo.ValidatorHashType>} - Validation reference for the form.
+   */
+  get betaExternalCallbackSuccessValidationRef () {
+    return /** @type {*} */ (
+      this.submitterHash.betaExternalCallbackSuccess
+        .validationRef
+    )
+  }
 }
 
 /**

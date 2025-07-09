@@ -5,7 +5,7 @@ import {
 /**
  * Clerk for SampleFormElement.
  *
- * @extends {BaseFormElementClerk<*, *, *>}
+ * @extends {BaseFormElementClerk<*>}
  */
 export default class SampleFormElementClerk extends BaseFormElementClerk {
 

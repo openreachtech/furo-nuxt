@@ -323,7 +323,7 @@ export default class ChatRoomSubscriptionContext extends BaseFuroContext {
  *   subscriptionGraphqlClient: {
  *     capsuleRef: import('vue').Ref<*>
  *     invokeSubscribe: (args: {
- *       hooks: furo.GraphqlSubscriberHooks
+ *       hooks: GraphqlType.SubscriberHooks
  *       valueHash?: Record<string, *>
  *       operationName?: string | null
  *       extensions?: Record<string, unknown>
@@ -346,7 +346,7 @@ export default class ChatRoomSubscriptionContext extends BaseFuroContext {
  *   subscriptionGraphqlClient: {
  *     capsuleRef: import('vue').Ref<*>
  *     invokeSubscribe: (args: {
- *       hooks: furo.GraphqlSubscriberHooks
+ *       hooks: GraphqlType.SubscriberHooks
  *       valueHash?: Record<string, *>
  *       operationName?: string | null
  *       extensions?: Record<string, unknown>

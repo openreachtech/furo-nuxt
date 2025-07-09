@@ -85,8 +85,8 @@ export default class CompanySponsorsPageContext extends BaseFuroContext {
    * get: graphqlRequestHooks.
    *
    * @returns {{
-   *   beforeRequest: (payload: furo.Payload<*>) => Promise<boolean>
-   *   afterRequest: (capsule: furo.Capsule<*>) => Promise<void>
+   *   beforeRequest: (payload: GraphqlType.Payload<*>) => Promise<boolean>
+   *   afterRequest: (capsule: GraphqlType.Capsule<*>) => Promise<void>
    * }}
    */
   get graphqlRequestHooks () {

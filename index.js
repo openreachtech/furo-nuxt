@@ -19,6 +19,11 @@ export { default as NuxtFuroEnvLoader } from './lib/tools/NuxtFuroEnvLoader.js'
 export { default as buildDefineComponent } from './lib/vue/buildDefineComponent.js'
 
 /**
+ * DOM Clerks
+ */
+export { default as BaseFormClerk } from './lib/clerks/BaseFormClerk.js'
+
+/**
  * Tools
  */
 export { default as AccessTokenClerk } from './lib/tools/AccessTokenClerk.js'
@@ -45,3 +50,9 @@ export { default as BaseFuroContextAccessor } from './lib/contexts/BaseFuroConte
  */
 export { default as FuroShare } from './lib/shares/FuroShare.js'
 export { default as FuroGraphqlShare } from './lib/shares/FuroGraphqlShare.js'
+
+/**
+ * RESTful API
+ */
+export { default as RestfulApiClient } from './lib/clients/RestfulApiClient.js'
+export { default as BaseRestfulApiSubmitter } from './lib/submitters/BaseRestfulApiSubmitter.js'

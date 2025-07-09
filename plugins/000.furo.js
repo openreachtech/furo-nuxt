@@ -7,6 +7,7 @@ import AppShare from '../app/shares/AppShare.js'
 import FuroGraphqlShare from '~/lib/shares/FuroGraphqlShare.js'
 
 import graphqlConfig from '~/app/graphql/graphql.config.js'
+import renchanRestfulApiConfig from '~/app/restfulapi/renchan/restfulapi.config.js'
 
 import useSubscriptionConnector from '~/lib/composables/useSubscriptionConnector.js'
 
@@ -15,6 +16,7 @@ import useSubscriptionConnector from '~/lib/composables/useSubscriptionConnector
  */
 export default defineNuxtPlugin(async () => {
   setupGraphqlConfig()
+  setupRestfulApiConfig()
 
   const $furo = await createShare({
     config: /** @type {furo.GraphqlConfig} */ (graphqlConfig),
@@ -41,6 +43,16 @@ function setupGraphqlConfig () {
     .ENDPOINT_URL
   graphqlConfig.WEBSOCKET_URL = runtimeConfig.public
     .WEBSOCKET_URL
+}
+
+/**
+ * Setup RESTful API config.
+ */
+function setupRestfulApiConfig () {
+  const runtimeConfig = useRuntimeConfig()
+
+  renchanRestfulApiConfig.BASE_URL = runtimeConfig.public
+    .RENCHAN_RESTFUL_API_BASE_URL
 }
 
 /**

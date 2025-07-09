@@ -74,7 +74,12 @@ export default defineComponent({
           event: $event,
         })"
       >
-        {{ tab.label }}
+        <slot
+          :name="tab.slotName"
+          :label="tab.label"
+        >
+          {{ tab.label }}
+        </slot>
       </button>
     </div>
 

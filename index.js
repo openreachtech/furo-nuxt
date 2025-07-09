@@ -55,3 +55,4 @@ export { default as FuroGraphqlShare } from './lib/shares/FuroGraphqlShare.js'
  * RESTful API
  */
 export { default as RestfulApiClient } from './lib/clients/RestfulApiClient.js'
+export { default as BaseRestfulApiSubmitter } from './lib/submitters/BaseRestfulApiSubmitter.js'

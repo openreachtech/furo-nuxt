@@ -174,6 +174,18 @@ export default class RestfulApiSampleSubmitterContext extends BaseFuroContext {
         .invalid
     )
   }
+
+  /**
+   * get: Validation invalid hash.
+   *
+   * @returns {Record<string, boolean>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationInvalidHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .invalid
+    )
+  }
 }
 
 /**

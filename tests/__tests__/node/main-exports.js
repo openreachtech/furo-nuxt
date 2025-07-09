@@ -28,6 +28,9 @@ import {
 
   AccessTokenClerk,
   FuroMeta,
+
+  RestfulApiClient,
+  BaseRestfulApiSubmitter,
 } from '~/index.js'
 
 describe('export composables', () => {
@@ -110,6 +113,18 @@ describe('export vue/function', () => {
 
   test.each(cases)('function: $func.name', ({ func }) => {
     expect(func)
+      .toBeDefined()
+  })
+})
+
+describe('export RESTful API modules', () => {
+  const cases = [
+    { ExportClass: RestfulApiClient },
+    { ExportClass: BaseRestfulApiSubmitter },
+  ]
+
+  test.each(cases)('class: $ExportClass.name', ({ ExportClass }) => {
+    expect(ExportClass)
       .toBeDefined()
   })
 })

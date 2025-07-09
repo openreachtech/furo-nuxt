@@ -19,6 +19,11 @@ export { default as NuxtFuroEnvLoader } from './lib/tools/NuxtFuroEnvLoader.js'
 export { default as buildDefineComponent } from './lib/vue/buildDefineComponent.js'
 
 /**
+ * DOM Clerks
+ */
+export { default as BaseFormClerk } from './lib/clerks/BaseFormClerk.js'
+
+/**
  * Tools
  */
 export { default as AccessTokenClerk } from './lib/tools/AccessTokenClerk.js'

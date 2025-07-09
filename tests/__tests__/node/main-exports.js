@@ -5,6 +5,8 @@ import {
 
   useSubscriptionConnector,
 
+  BaseFormClerk,
+
   BaseFuroContext,
   FuroAccessControlLayoutContext,
   FuroButtonDialogContext,
@@ -26,6 +28,9 @@ import {
 
   AccessTokenClerk,
   FuroMeta,
+
+  RestfulApiClient,
+  BaseRestfulApiSubmitter,
 } from '~/index.js'
 
 describe('export composables', () => {
@@ -39,6 +44,17 @@ describe('export composables', () => {
 
   test.each(cases)('composable: $composable.name', ({ composable }) => {
     expect(composable)
+      .toBeDefined()
+  })
+})
+
+describe('export DOM clerks', () => {
+  const cases = [
+    { ExportClass: BaseFormClerk },
+  ]
+
+  test.each(cases)('class: $ExportClass.name', ({ ExportClass }) => {
+    expect(ExportClass)
       .toBeDefined()
   })
 })
@@ -97,6 +113,18 @@ describe('export vue/function', () => {
 
   test.each(cases)('function: $func.name', ({ func }) => {
     expect(func)
+      .toBeDefined()
+  })
+})
+
+describe('export RESTful API modules', () => {
+  const cases = [
+    { ExportClass: RestfulApiClient },
+    { ExportClass: BaseRestfulApiSubmitter },
+  ]
+
+  test.each(cases)('class: $ExportClass.name', ({ ExportClass }) => {
+    expect(ExportClass)
       .toBeDefined()
   })
 })

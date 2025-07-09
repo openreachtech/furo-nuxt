@@ -198,6 +198,18 @@ export default class RestfulApiSampleSubmitterContext extends BaseFuroContext {
         .message
     )
   }
+
+  /**
+   * get: Validation messages hash.
+   *
+   * @returns {Record<string, Array<string>>} - Validation rules for the form.
+   */
+  get betaExternalCallbackSuccessValidationMessagesHash () {
+    return /** @type {*} */ (
+      this.betaExternalCallbackSuccessValidationRef.value
+        .messages
+    )
+  }
 }
 
 /**

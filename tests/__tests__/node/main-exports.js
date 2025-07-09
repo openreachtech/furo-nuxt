@@ -5,6 +5,8 @@ import {
 
   useSubscriptionConnector,
 
+  BaseFormClerk,
+
   BaseFuroContext,
   FuroAccessControlLayoutContext,
   FuroButtonDialogContext,
@@ -39,6 +41,17 @@ describe('export composables', () => {
 
   test.each(cases)('composable: $composable.name', ({ composable }) => {
     expect(composable)
+      .toBeDefined()
+  })
+})
+
+describe('export DOM clerks', () => {
+  const cases = [
+    { ExportClass: BaseFormClerk },
+  ]
+
+  test.each(cases)('class: $ExportClass.name', ({ ExportClass }) => {
+    expect(ExportClass)
       .toBeDefined()
   })
 })

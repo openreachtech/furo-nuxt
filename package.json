@@ -1,6 +1,6 @@
 {
   "name": "@openreachtech/furo-nuxt",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "description": "furo for Nuxt",
   "main": "index.js",
   "files": [

@@ -9,8 +9,6 @@ import PathParameterHashGetRenchanRestfulApiLauncher from '~/app/restfulapi/renc
 
 /**
  * RESTful API client sample page fetcher.
- *
- * @extends {BaseFuroContext<>} - Base class <Accessor, Props, Emit>
  */
 export default class RestfulApiSampleFetcher {
   /**

@@ -29,8 +29,7 @@
     "core-js": "^3.38.0",
     "nuxt": "^3.12.4",
     "vue": "^3.4.38",
-    "vue-server-renderer": "^2.7.16",
-    "vue-template-compiler": "^2.7.16"
+    "vue-server-renderer": "^2.7.16"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

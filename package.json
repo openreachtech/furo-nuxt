@@ -35,7 +35,7 @@
     "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-env": "^7.25.3",
     "@openreachtech/eslint-config": "^3.0.2",
-    "@openreachtech/jest-constructor-spy": "^1.1.0",
+    "@openreachtech/jest-constructor-spy": "^1.1.2",
     "@openreachtech/jest-deep-containing": "^1.0.2",
     "@types/jest": "^29.5.12",
     "@vue/test-utils": "^2.4.6",

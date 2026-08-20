@@ -12,8 +12,11 @@ const sharedConfig = {
     '<rootDir>/tests/setup.js',
   ],
   setupFilesAfterEnv: [
-    '@openreachtech/renchan-test-tools/lib/environment/setupAfterEnv.js',
+    '@openreachtech/jest-deep-containing/lib/setup-expect-deepContaining.js',
     '<rootDir>/tests/setup-after-env.js',
+  ],
+  transformIgnorePatterns: [
+    '/node_modules/(?!@openreachtech/(jest-deep-containing|mentsu-gene-chain-splicer))',
   ],
   transform: {
     '^.+\\.js$': 'babel-jest',

@@ -27,7 +27,7 @@
   "dependencies": {
     "@openreachtech/furo": "^1.11.0",
     "core-js": "^3.50.0",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.21.11",
     "vue": "^3.4.38"
   },
   "devDependencies": {

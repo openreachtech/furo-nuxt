@@ -64,8 +64,10 @@ jobs:
         run: npm run lint
 
       - name: 🧪 Jest
-        env:
-          NODE_ENV: development
+        # TODO: Babel runs only when NODE_ENV is "test".
+        # Investigate the config later to sync with npm-boilerplate.
+        # env:
+        #   NODE_ENV: development
         run: npm test
 
       - name: 🏗️ Build

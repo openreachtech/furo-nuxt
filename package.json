@@ -37,7 +37,7 @@
     "@openreachtech/eslint-config": "^3.0.2",
     "@openreachtech/jest-constructor-spy": "^1.1.2",
     "@openreachtech/jest-deep-containing": "^1.0.2",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "@vue/test-utils": "^2.4.6",
     "@vue/vue3-jest": "^29.2.6",
     "babel-jest": "^29.7.0",

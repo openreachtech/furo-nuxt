@@ -49,9 +49,9 @@ Since `furo` is written in pure JavaScript, all `furo` features work with Nuxt.
 
 # License
 
-This project is released under the MIT License.
+This project is released under the Apache License 2.0.
 
-See [LICENSE](./LICENSE) for details.
+For more details, please see [in the LICENSE file](./LICENSE).
 
 # Contributing
 

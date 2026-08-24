@@ -5,6 +5,9 @@ import {
 
 import FuroAccessControlLayoutContext from '../contexts/concretes/FuroAccessControlLayoutContext.js'
 
+/**
+ * @deprecated since 1.12.0. Will be removed in 2.0.0.
+ */
 export default defineComponent({
   name: 'FuroAccessControlLayout',
   inheritAttrs: false,

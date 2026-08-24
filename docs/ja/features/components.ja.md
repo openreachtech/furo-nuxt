@@ -28,13 +28,17 @@ export default defineNuxtConfig({
     '@openreachtech/furo-nuxt/lib/assets/css/0010.variables-palette-color-scale.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0020.variables-z-index.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0100.reset.css',
-    '@openreachtech/furo-nuxt/lib/assets/css/0200.base.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0300.gimmick.css',
   ],
 })
 ```
 
 コンポーネントのスタイルは `@layer furo` の中で宣言されているため、レイヤーに属さない独自のルールは `!important` なしでこれらに優先します。
+
+`0200.base.css` は 1.12.0 で削除しました。アップグレードの際は `css` から外してください。外さないとパスの解決に失敗してビルドが
+通りません。このファイルは全ページのネイティブタグを再スタイルしていました。`p + p` `section + section` `h1 + *` が付けていた
+margin、すべての `<input>` の padding、すべての `<h1>` の `capitalize`、`<header>` と `<nav>` の `z-index` です。デザイン上
+必要なものだけを、タグ名ではなく自身のクラスに限定して戻してください。
 
 ## (2) `FuroDialog`
 

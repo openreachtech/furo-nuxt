@@ -1,5 +1,8 @@
 # FuroTabLayoutContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroTabLayout`. Copy the component and this context into your app
+> before upgrading. See [Components](../features/components.md).
+
 Context of `FuroTabLayout`. It turns the `tabs` prop into a list of [FuroTabItemContext](./FuroTabItemContext.md), and moves
 the `active` class on click.
 

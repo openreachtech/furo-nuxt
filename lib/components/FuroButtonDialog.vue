@@ -16,6 +16,9 @@ const EVENT_NAME = {
   CLICK_NEUTRAL_BUTTON: 'clickNeutralButton',
 }
 
+/**
+ * @deprecated since 1.12.0. Will be removed in 2.0.0.
+ */
 export default defineComponent({
   name: 'FuroButtonDialog',
 

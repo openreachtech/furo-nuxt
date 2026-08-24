@@ -1,5 +1,8 @@
 # FuroOffCanvasMenuLayoutContext
 
+> **1.12.0 で非推奨。** `FuroOffCanvasMenuLayout` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroOffCanvasMenuLayout` のコンテキストです。ナビゲーションの開閉状態は、ルート要素の `open-nav` クラスで表されます。
 
 [BaseFuroContext](./BaseFuroContext.ja.md) を継承しています。

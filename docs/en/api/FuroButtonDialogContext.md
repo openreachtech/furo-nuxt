@@ -1,5 +1,8 @@
 # FuroButtonDialogContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroButtonDialog`. Copy the component and this context into your app
+> before upgrading. See [Components](../features/components.md).
+
 Context of `FuroButtonDialog`. Each button emits its event and then dismisses the dialog.
 
 Extends [BaseFuroContext](./BaseFuroContext.md), and delegates showing and dismissing to the inner `FuroDialog` component.

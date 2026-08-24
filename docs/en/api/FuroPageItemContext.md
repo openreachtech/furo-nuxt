@@ -1,5 +1,8 @@
 # FuroPageItemContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroPagination`. Copy the component and this context into your app
+> before upgrading. See [Components](../features/components.md).
+
 One page link of `FuroPagination`. Instances are built by
 [FuroPaginationContext](./FuroPaginationContext.md), and arrive in the `change-page` payload.
 

@@ -1,5 +1,8 @@
 # FuroDialogContext
 
+> **1.12.0 で非推奨。** `FuroDialog` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroDialog` のコンテキストです。ネイティブの `open` 属性を `MutationObserver` で監視してその変化を `emit()` イベントに変換し、ダイアログの矩形の外側へのクリックを通知します。
 
 [BaseFuroContext](./BaseFuroContext.ja.md) を継承しています。

@@ -1,5 +1,8 @@
 # FuroPaginationContext
 
+> **1.12.0 で非推奨。** `FuroPagination` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroPagination` のコンテキストです。現在のルートクエリと総レコード数から、ページリンクの範囲を導出します。
 
 [BaseFuroContext](./BaseFuroContext.ja.md) を継承しており、`.create()` は `{ props, componentContext, route }` を受け取ります。

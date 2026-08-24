@@ -1,5 +1,8 @@
 # FuroPageItemContext
 
+> **1.12.0 で非推奨。** `FuroPagination` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroPagination` の 1 つのページリンクです。インスタンスは
 [FuroPaginationContext](./FuroPaginationContext.ja.md) が構築し、`change-page` のペイロードに含まれます。
 

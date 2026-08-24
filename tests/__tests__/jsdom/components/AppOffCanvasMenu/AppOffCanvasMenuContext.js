@@ -52,10 +52,6 @@ describe('AppOffCanvasMenuContext', () => {
                     text: 'Form Controls Inspector',
                     href: '/samples/form-controls-inspector',
                   }),
-                  LinkItemContext.create({
-                    text: 'Trigger Unlock Sample',
-                    href: '/samples/trigger-unlock',
-                  }),
                 ],
               },
             },
@@ -138,10 +134,6 @@ describe('AppOffCanvasMenuContext', () => {
                   text: 'Form Controls Inspector',
                   href: '/samples/form-controls-inspector',
                 }),
-                LinkItemContext.create({
-                  text: 'Trigger Unlock Sample',
-                  href: '/samples/trigger-unlock',
-                }),
               ],
             },
           },
@@ -210,10 +202,6 @@ describe('AppOffCanvasMenuContext', () => {
                 LinkItemContext.create({
                   text: 'Form Controls Inspector',
                   href: '/samples/form-controls-inspector',
-                }),
-                LinkItemContext.create({
-                  text: 'Trigger Unlock Sample',
-                  href: '/samples/trigger-unlock',
                 }),
               ],
             },
@@ -301,10 +289,6 @@ describe('AppOffCanvasMenuContext', () => {
                 text: 'Form Controls Inspector',
                 href: '/samples/form-controls-inspector',
               }),
-              LinkItemContext.create({
-                text: 'Trigger Unlock Sample',
-                href: '/samples/trigger-unlock',
-              }),
             ],
           },
         },
@@ -328,10 +312,6 @@ describe('AppOffCanvasMenuContext', () => {
               LinkItemContext.create({
                 text: 'Form Controls Inspector',
                 href: '/samples/form-controls-inspector',
-              }),
-              LinkItemContext.create({
-                text: 'Trigger Unlock Sample',
-                href: '/samples/trigger-unlock',
               }),
             ],
           },

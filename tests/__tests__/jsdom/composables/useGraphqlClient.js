@@ -1,8 +1,9 @@
-import useGraphqlClient from '~/lib/composables/useGraphqlClient.js'
+import {
+  BaseGraphqlCapsule,
+  BaseGraphqlLauncher,
+} from '@openreachtech/furo'
 
-import CompanySponsorsQueryGraphqlLauncher from '~/app/graphql/client/queries/companySponsors/CompanySponsorsQueryGraphqlLauncher.js'
-import CurriculumsQueryGraphqlLauncher from '~/app/graphql/client/queries/curriculums/CurriculumsQueryGraphqlLauncher.js'
-import SignUpMutationGraphqlLauncher from '~/app/graphql/client/mutations/signUp/SignUpMutationGraphqlLauncher.js'
+import useGraphqlClient from '~/lib/composables/useGraphqlClient.js'
 
 describe('useGraphqlClient()', () => {
   describe('to be an object', () => {
@@ -16,17 +17,32 @@ describe('useGraphqlClient()', () => {
     const cases = [
       {
         params: {
-          Launcher: CompanySponsorsQueryGraphqlLauncher,
+          Launcher: class CompanySponsorsQueryGraphqlLauncher extends BaseGraphqlLauncher {
+            /** @override */
+            static get Capsule () {
+              return BaseGraphqlCapsule
+            }
+          },
         },
       },
       {
         params: {
-          Launcher: CurriculumsQueryGraphqlLauncher,
+          Launcher: class CurriculumsQueryGraphqlLauncher extends BaseGraphqlLauncher {
+            /** @override */
+            static get Capsule () {
+              return BaseGraphqlCapsule
+            }
+          },
         },
       },
       {
         params: {
-          Launcher: SignUpMutationGraphqlLauncher,
+          Launcher: class SignUpMutationGraphqlLauncher extends BaseGraphqlLauncher {
+            /** @override */
+            static get Capsule () {
+              return BaseGraphqlCapsule
+            }
+          },
         },
       },
     ]

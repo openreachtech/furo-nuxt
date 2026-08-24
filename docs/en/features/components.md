@@ -31,7 +31,6 @@ export default defineNuxtConfig({
     '@openreachtech/furo-nuxt/lib/assets/css/0010.variables-palette-color-scale.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0020.variables-z-index.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0100.reset.css',
-    '@openreachtech/furo-nuxt/lib/assets/css/0200.base.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0300.gimmick.css',
   ],
 })
@@ -39,6 +38,11 @@ export default defineNuxtConfig({
 
 Component styles are declared inside `@layer furo`, so any unlayered rule of your own wins over them without needing
 `!important`.
+
+`0200.base.css` is gone as of 1.12.0. Remove it from `css` when you upgrade, or the build fails on the missing path. It
+restyled native tags across every page: the margins added by `p + p`, `section + section` and `h1 + *`, the padding on
+every `<input>`, the `capitalize` on every `<h1>`, and the `z-index` on `<header>` and `<nav>`. Add back only what your
+design needs, scoped to your own classes rather than to tag names.
 
 ## (2) `FuroDialog`
 

@@ -62,7 +62,7 @@ jobs:
           # Reads @openreachtech/* from GitHub Packages. Without this the install
           # fails with 401 on a private repository of the organization.
           NODE_AUTH_TOKEN: ${{ secrets.TO_REPO_OF_ORT_PRIVATE }}
-        run: npm ci --legacy-peer-deps
+        run: npm ci
 
       - name: 🧵 ESLint
         run: npm run lint

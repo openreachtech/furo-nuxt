@@ -5,11 +5,6 @@ import eslintPluginComments from 'eslint-plugin-eslint-comments'
 import openreachtechConfig from '@openreachtech/eslint-config'
 import vuePluginConfig from './eslint/plugin-vue.js'
 
-/**
- * ESLint Config
- *
- * @type {Array<import('eslint').Linter.Config>}
- */
 export default [
   ...openreachtechConfig,
 

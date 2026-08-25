@@ -10,8 +10,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   main-guard:
@@ -34,7 +33,7 @@ jobs:
               echo "Source branch '$HEAD_REF' is allowed."
               ;;
             *)
-              echo "::error::Only 'release/*', 'hotfix/*', 'dev', and 'env' branches may be merged into 'main'. (❌️ '$HEAD_REF' is not allowed)"
+              echo "::error::Only 'release/*', 'hotfix/*', 'dev', and 'env' branches may be merged into 'main'. (❌ '$HEAD_REF' is not allowed)"
               exit 1
               ;;
           esac

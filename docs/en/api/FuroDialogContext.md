@@ -1,5 +1,8 @@
 # FuroDialogContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroDialog`. Copy the component and this context into your app before
+> upgrading. See [Components](../features/components.md).
+
 Context of `FuroDialog`. It watches the native `open` attribute through a `MutationObserver` and turns its changes into
 `emit()` events, and reports clicks that land outside the dialog box.
 

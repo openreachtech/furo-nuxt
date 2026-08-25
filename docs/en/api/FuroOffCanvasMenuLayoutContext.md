@@ -1,5 +1,8 @@
 # FuroOffCanvasMenuLayoutContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroOffCanvasMenuLayout`. Copy the component and this context into your
+> app before upgrading. See [Components](../features/components.md).
+
 Context of `FuroOffCanvasMenuLayout`. The open state of the navigation is the `open-nav` class on the root element.
 
 Extends [BaseFuroContext](./BaseFuroContext.md).

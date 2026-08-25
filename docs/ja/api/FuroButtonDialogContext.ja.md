@@ -1,5 +1,8 @@
 # FuroButtonDialogContext
 
+> **1.12.0 で非推奨。** `FuroButtonDialog` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroButtonDialog` のコンテキストです。各ボタンは対応するイベントを発火した後、ダイアログを閉じます。
 
 [BaseFuroContext](./BaseFuroContext.ja.md) を継承し、開閉処理は内部の `FuroDialog` コンポーネントに委譲します。

@@ -1,5 +1,8 @@
 # FuroTabLayoutContext
 
+> **1.12.0 で非推奨。** `FuroTabLayout` とともに 2.0.0 で削除します。アップグレードの前に、コンポーネントとこのコンテキストを
+> アプリ側へコピーしてください。詳細は [コンポーネント](../features/components.ja.md) を参照してください。
+
 `FuroTabLayout` のコンテキストです。`tabs` prop を [FuroTabItemContext](./FuroTabItemContext.ja.md) のリストに変換し、クリック時に `active` クラスを移動します。
 
 [BaseFuroContext](./BaseFuroContext.ja.md) を継承しています。

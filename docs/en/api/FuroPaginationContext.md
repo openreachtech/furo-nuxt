@@ -1,5 +1,8 @@
 # FuroPaginationContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroPagination`. Copy the component and this context into your app
+> before upgrading. See [Components](../features/components.md).
+
 Context of `FuroPagination`. It derives the page link range from the current route query and the total record count.
 
 Extends [BaseFuroContext](./BaseFuroContext.md), and `.create()` takes `{ props, componentContext, route }`.

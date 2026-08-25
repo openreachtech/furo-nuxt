@@ -1,5 +1,8 @@
 # FuroTabItemContext
 
+> **Deprecated since 1.12.0.** Will be removed in 2.0.0 together with `FuroTabLayout`. Copy the component and this context into your app
+> before upgrading. See [Components](../features/components.md).
+
 One tab of `FuroTabLayout`. Instances are built by
 [FuroTabLayoutContext](./FuroTabLayoutContext.md) from the `tabs` prop, and arrive in the `change-tab` payload.
 

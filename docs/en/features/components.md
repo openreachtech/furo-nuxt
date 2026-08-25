@@ -1,5 +1,12 @@
 # Components
 
+> **Deprecated since 1.12.0. Will be removed in 2.0.0.** Every component listed here, and the context class behind it, leaves the package at
+> the next major version. The stylesheets `0200.base.css` and `0300.gimmick.css` go with them.
+>
+> Copy the components you still need into your own app before upgrading. They carry no hidden dependency on the package:
+> each one is a single `.vue` file plus its context class, and both are yours to own once copied. See
+> [Migrating off the components](#migrating-off-the-components) below.
+
 The components ship as `.vue` files under `lib/components/`, so import them by path.
 
 ```js
@@ -24,7 +31,6 @@ export default defineNuxtConfig({
     '@openreachtech/furo-nuxt/lib/assets/css/0010.variables-palette-color-scale.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0020.variables-z-index.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0100.reset.css',
-    '@openreachtech/furo-nuxt/lib/assets/css/0200.base.css',
     '@openreachtech/furo-nuxt/lib/assets/css/0300.gimmick.css',
   ],
 })
@@ -32,6 +38,11 @@ export default defineNuxtConfig({
 
 Component styles are declared inside `@layer furo`, so any unlayered rule of your own wins over them without needing
 `!important`.
+
+`0200.base.css` is gone as of 1.12.0. Remove it from `css` when you upgrade, or the build fails on the missing path. It
+restyled native tags across every page: the margins added by `p + p`, `section + section` and `h1 + *`, the padding on
+every `<input>`, the `capitalize` on every `<h1>`, and the `z-index` on `<header>` and `<nav>`. Add back only what your
+design needs, scoped to your own classes rather than to tag names.
 
 ## (2) `FuroDialog`
 
@@ -324,3 +335,24 @@ The open state is the `open-nav` class on the root element. The navigation close
   </FuroOffCanvasMenuLayout>
 </template>
 ```
+
+## Migrating off the components
+
+Do this before upgrading to 2.0.0. Nothing here needs to wait for the major version, and every step works against the
+current release.
+
+1. Copy the `.vue` files you use from `node_modules/@openreachtech/furo-nuxt/lib/components/` into your own `components/`
+   directory, and copy their context classes from `lib/contexts/concretes/` alongside them.
+2. Point the copied component at your copied context instead of the package one, and repoint your own imports at the copy.
+   `BaseFuroContext` stays in the package, so a copied context keeps extending it.
+3. Move the component's styles with it. They are declared inside `@layer furo`; put them in `@layer app` in your app so
+   your own rules keep winning.
+4. Drop `0300.gimmick.css` from `css` in `nuxt.config.js`. Its only production rule is `body:has(dialog[open])`, which
+   locks page scroll while a `<dialog>` is open. Copy that one rule into your app if you rely on it.
+5. Drop `0200.base.css` from `css` in `nuxt.config.js` last, because it restyles native tags across every page. Removing
+   it drops the margins that `p + p`, `section + section` and `h1 + *` add, the padding on every `<input>`, the
+   `capitalize` on every `<h1>`, and the `z-index` on `<header>` and `<nav>`. Add back only what your design needs, scoped
+   to your own classes.
+
+`0000.furo.css`, `0010.variables-palette-color-scale.css`, `0020.variables-z-index.css` and `0100.reset.css` stay in the
+package. Keep importing them.

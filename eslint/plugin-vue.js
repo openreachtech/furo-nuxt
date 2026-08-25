@@ -620,7 +620,35 @@ export default [
       'vue/no-console': [
         'error',
         {
-          allow: undefined, // When disable `allow` field, give undefined instead of empty array
+          // allow: undefined,
+          /*
+           * When add `allow` field, require to give non-empty array.
+           * Therefore, we cannot give [] to allow explicitly here.
+           *
+           * list of items:
+           * [
+           *   'assert',
+           *   'clear',
+           *   'Console',
+           *   'count',
+           *   'countReset',
+           *   'debug',
+           *   'dir',
+           *   'dirxml',
+           *   'error',
+           *   'group',
+           *   'groupCollapsed',
+           *   'groupEnd',
+           *   'info',
+           *   'log',
+           *   'table',
+           *   'time',
+           *   'timeEnd',
+           *   'timeLog',
+           *   'trace',
+           *   'warn',
+           * ],
+           */
         },
       ],
       'vue/no-constant-condition': [

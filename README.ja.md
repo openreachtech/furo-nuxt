@@ -12,8 +12,10 @@ For the English version, see [README.md](./README.md).
 
 - `furo` のクライアント（GraphQL・RESTful API・サブスクリプション）を Vue の ref に結び付けるコンポーザブル。
 - コンポーネントのロジックを `<template>` と `setup()` から切り離すコンテキストクラス群。
-- すぐに使えるコンポーネント（ダイアログ・レイアウト・ページネーション・タブ）と、その基本スタイルシート。1.12.0 で非推奨、2.0.0 で削除。
 - 環境変数を読み込み、Nuxt アプリ全体で共有するためのツール。
+
+`furo-nuxt` が与えるのは **ロジックの書き方の基底** です。コンポーネントとスタイルシートは意図的に一切同梱していません。
+マークアップとデザインは、このパッケージではなくアプリケーション側のものです。
 
 ## インストール
 
@@ -43,14 +45,7 @@ ES モジュール（`"type": "module"`）です。ESM の `import` 構文でイ
 
 [コンポーネントコンテキスト の使い方](https://github.com/openreachtech/furo-nuxt/blob/main/docs/ja/features/component-context.ja.md)
 
-### (5) コンポーネント（1.12.0 で非推奨、2.0.0 で削除）
-
-[コンポーネント の使い方](https://github.com/openreachtech/furo-nuxt/blob/main/docs/ja/features/components.ja.md)
-
-コンポーネント本体、そのコンテキストクラス、`0200.base.css`、`0300.gimmick.css` は、次のメジャーバージョンでパッケージから
-外れます。使用しているものは先にアプリ側へコピーしてください。移行手順は上記のドキュメントにあります。
-
-### (6) アプリケーションのセットアップ
+### (5) アプリケーションのセットアップ
 
 [アプリケーションのセットアップ の使い方](https://github.com/openreachtech/furo-nuxt/blob/main/docs/ja/features/app-setup.ja.md)
 

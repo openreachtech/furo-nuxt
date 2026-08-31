@@ -23,20 +23,6 @@ Class members are written with the following notation.
 - [BaseFuroContext](./BaseFuroContext.md)
 - [BaseFuroContextAccessor](./BaseFuroContextAccessor.md)
 
-The context of each shipped component is deprecated since 1.12.0 and leaves the package in 2.0.0, together with the
-component itself.
-See [Components](../features/components.md).
-
-- [FuroAccessControlLayoutContext](./FuroAccessControlLayoutContext.md) (deprecated)
-- [FuroButtonDialogContext](./FuroButtonDialogContext.md) (deprecated)
-- [FuroDialogContext](./FuroDialogContext.md) (deprecated)
-- [FuroLoadingLayoutContext](./FuroLoadingLayoutContext.md) (deprecated)
-- [FuroOffCanvasMenuLayoutContext](./FuroOffCanvasMenuLayoutContext.md) (deprecated)
-- [FuroPageItemContext](./FuroPageItemContext.md) (deprecated)
-- [FuroPaginationContext](./FuroPaginationContext.md) (deprecated)
-- [FuroTabItemContext](./FuroTabItemContext.md) (deprecated)
-- [FuroTabLayoutContext](./FuroTabLayoutContext.md) (deprecated)
-
 ## Forms
 
 - [BaseFormClerk](./BaseFormClerk.md)

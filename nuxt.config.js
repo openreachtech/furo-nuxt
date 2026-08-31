@@ -9,9 +9,6 @@ export default defineNuxtConfig({
   // Nuxt App configuration: https://nuxt.com/docs/api/nuxt-config#app.
   app: {
     head: {
-      bodyAttrs: {
-        class: 'unit-body',
-      },
       htmlAttrs: {
         lang: 'en',
       },
@@ -29,12 +26,8 @@ export default defineNuxtConfig({
   },
 
   // Global CSS: https://nuxt.com/docs/api/nuxt-config#css.
+  // NOTE: furo-nuxt ships no stylesheet. Styling is left entirely to the application.
   css: [
-    '~/lib/assets/css/0000.furo.css',
-    '~/lib/assets/css/0010.variables-palette-color-scale.css',
-    '~/lib/assets/css/0020.variables-z-index.css',
-    '~/lib/assets/css/0100.reset.css',
-    '~/lib/assets/css/0300.gimmick.css',
   ],
 
   // Plugins to run before rendering page: https://nuxt.com/docs/api/nuxt-config#plugins-1.

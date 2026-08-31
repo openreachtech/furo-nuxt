@@ -8,19 +8,10 @@ import {
   BaseFormClerk,
 
   BaseFuroContext,
-  FuroAccessControlLayoutContext,
-  FuroButtonDialogContext,
-  FuroDialogContext,
-  FuroOffCanvasMenuLayoutContext,
-  FuroPageItemContext,
-  FuroPaginationContext,
-  FuroTabItemContext,
-  FuroTabLayoutContext,
+  BaseFuroContextAccessor,
 
   FuroShare,
   FuroGraphqlShare,
-
-  BaseFuroContextAccessor,
 
   NuxtFuroEnvLoader,
 
@@ -62,15 +53,6 @@ describe('export DOM clerks', () => {
 describe('export furo contexts', () => {
   const cases = [
     { ExportClass: BaseFuroContext },
-    { ExportClass: FuroAccessControlLayoutContext },
-    { ExportClass: FuroButtonDialogContext },
-    { ExportClass: FuroDialogContext },
-    { ExportClass: FuroOffCanvasMenuLayoutContext },
-    { ExportClass: FuroPageItemContext },
-    { ExportClass: FuroPaginationContext },
-    { ExportClass: FuroTabItemContext },
-    { ExportClass: FuroTabLayoutContext },
-
     { ExportClass: BaseFuroContextAccessor },
   ]
 

@@ -1,5 +1,58 @@
 # Changelog
 
+## 2.0.0
+
+### Breaking
+
+**The shipped components and their stylesheets are gone.** They were deprecated in 1.12.0 and are now removed, along with
+the context class behind each one.
+
+`furo-nuxt` exists to give a base for *how to write logic*. A component and a stylesheet are design decisions, and the
+package shipping them read as decisions consumers had to accept. It no longer ships either, so nothing about your markup
+or your CSS is dictated here.
+
+Removed:
+
+| Removed | Was |
+| :-- | :-- |
+| `lib/components/FuroAccessControlLayout.vue`, `FuroAccessControlLayoutContext` | component + context |
+| `lib/components/FuroButtonDialog.vue`, `FuroButtonDialogContext` | component + context |
+| `lib/components/FuroDialog.vue`, `FuroDialogContext` | component + context |
+| `lib/components/FuroLoadingLayout.vue`, `FuroLoadingLayoutContext` | component + context |
+| `lib/components/FuroOffCanvasMenuLayout.vue`, `FuroOffCanvasMenuLayoutContext` | component + context |
+| `lib/components/FuroPagination.vue`, `FuroPaginationContext`, `FuroPageItemContext` | component + contexts |
+| `lib/components/FuroTabLayout.vue`, `FuroTabLayoutContext`, `FuroTabItemContext` | component + contexts |
+| `lib/assets/css/0000.furo.css` | `@layer` declaration |
+| `lib/assets/css/0010.variables-palette-color-scale.css` | color scale custom properties |
+| `lib/assets/css/0020.variables-z-index.css` | z-index custom properties |
+| `lib/assets/css/0100.reset.css` | reset for native HTML elements |
+| `lib/assets/css/0300.gimmick.css` | `body:has(dialog[open])` scroll lock |
+
+The nine context classes above are no longer exported from the package entry. `BaseFuroContext` and
+`BaseFuroContextAccessor` are unchanged and still exported — a component you own keeps extending them.
+
+### Migration
+
+The `css` array in `nuxt.config.js` is the first thing to fix: an unresolved path fails the build.
+
+1. Remove every `@openreachtech/furo-nuxt/lib/assets/css/*` entry from `css` in `nuxt.config.js`.
+2. Take the stylesheets you still want from the `1.12.0` tag and put them in your own app, under your own paths:
+   <https://github.com/openreachtech/furo-nuxt/tree/1.12.0/lib/assets/css>. `0010.variables-palette-color-scale.css` and
+   `0020.variables-z-index.css` are pure custom-property declarations and copy over as-is. `0100.reset.css` resets native
+   elements. `0000.furo.css` only declares the `reset, base, furo, app` cascade layers — keep it only if your own CSS
+   names those layers.
+3. Copy the components you use from <https://github.com/openreachtech/furo-nuxt/tree/1.12.0/lib/components> into your own
+   `components/` directory, and their context classes from
+   <https://github.com/openreachtech/furo-nuxt/tree/1.12.0/lib/contexts/concretes> alongside them.
+4. Point each copied component at your copied context, and repoint your own imports away from `@openreachtech/furo-nuxt`.
+   The copied context keeps `import { BaseFuroContext } from '@openreachtech/furo-nuxt'`.
+5. Move each component's styles with it. They were declared inside `@layer furo`; in your app they belong in whatever
+   layer your own rules use.
+6. If you relied on the `<dialog>` scroll lock, copy `body:has(dialog[open]) { overflow: hidden }` into your stylesheet.
+
+`FuroOffCanvasMenuLayout` and `FuroPagination` resolve `useRoute()` and `NuxtLink`, so a copy of either still needs to
+live inside a Nuxt app. The rest are plain Vue components.
+
 ## 1.12.0
 
 ### Breaking

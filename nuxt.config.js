@@ -6,6 +6,10 @@ import furoEnv from './app/globals/furo-env.js'
 
 // Reference: https://nuxt.com/docs/api/nuxt-config.
 export default defineNuxtConfig({
+  // Source directory: https://nuxt.com/docs/api/nuxt-config#srcdir.
+  // NOTE: `app/` holds the furo modules, so the root stays the source directory under Nuxt 4 as well.
+  srcDir: '.',
+
   // Nuxt App configuration: https://nuxt.com/docs/api/nuxt-config#app.
   app: {
     head: {

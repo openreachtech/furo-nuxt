@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.1.0
+
+### Changed
+
+**`nuxt` is a peer dependency now, and Nuxt 4 is supported.** `package.json` declares `nuxt` under `peerDependencies`
+as `^3.21.11 || ^4.6.2`, where it used to sit under `dependencies` as `^3.21.11`. The composables hand back objects built
+from `nuxt/app`, so the copy they use has to be your app's own. As a dependency, `nuxt` gave an app on Nuxt 4 a second,
+nested Nuxt 3 without a warning. As a peer, the package shares the copy your app installs, and npm refuses a version
+outside the range.
+
+**`vue` is a peer dependency now.** `package.json` moves `vue` from `dependencies` to `peerDependencies` as `^3.5.41`.
+The composables and contexts import from `vue`, so they have to share your app's copy for reactivity and
+`provide`/`inject` to reach each other. Every Nuxt app already installs `vue` through `nuxt`.
+
+An app on Nuxt 3.21.11 or later needs no change. An app on an older Nuxt 3 raises `nuxt` to 3.21.11 before upgrading.
+
+Nuxt 4 reads `app/` as the source directory by default. If your app keeps its pages and components at the root and its
+furo modules under `app/`, set `srcDir: '.'` in `nuxt.config.js` before moving to Nuxt 4, or the build stops resolving
+`~/` paths.
+
 ## 2.0.0
 
 ### Breaking

@@ -26,8 +26,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@openreachtech/furo": "^1.11.0",
-    "core-js": "^3.50.0",
-    "nuxt": "^3.21.11",
+    "core-js": "^3.50.0"
+  },
+  "peerDependencies": {
+    "nuxt": "^3.21.11 || ^4.6.2",
     "vue": "^3.5.41"
   },
   "devDependencies": {

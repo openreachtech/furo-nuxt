@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.0.0
+
+### Breaking
+
+**`@openreachtech/furo` moves to `2.0.0`.** `package.json` declares it as `^2.0.0`, where it was `^1.12.0`. The
+composables and clients of this package use none of the members `2.0.0` removes, but your app reaches
+`@openreachtech/furo` through this package, so your own code meets its breaking changes.
+
+- `capsule.rawResponse` is gone. Read `capsule.responseParcel` instead.
+- `ProgressHttpFetcher` is gone. The launchers use `XMLHttpFetcher` by default, and a launcher that overrides
+  `static get HttpFetcherCtor ()` can return `FetchHttpFetcher` instead.
+- An aborted request reports `192.X000.004` instead of `192.X000.001`, and a timeout reports `192.X000.003`. If your
+  app maps error codes to messages, add both.
+
+Before upgrading, search your app for `rawResponse` and `ProgressHttpFetcher`, and read the
+[release note of `@openreachtech/furo` `2.0.0`](https://github.com/openreachtech/furo-core/releases/tag/2.0.0).
+
 ## 2.1.0
 
 ### Changed

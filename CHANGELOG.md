@@ -1,5 +1,24 @@
 # Changelog
 
+## 3.0.1
+
+### Changed
+
+**No action needed.** Nothing in `lib/` or `types/` changed, and `dependencies` and `peerDependencies` keep the ranges
+they had in `3.0.0`. This release refreshes `package-lock.json` and adds an audit gate for development. The `overrides`
+in this package's `package.json` apply only when you install this repository itself, so they do not reach an app that
+installs the package. To get patched transitive versions in your app, refresh your own lockfile.
+
+- `package-lock.json` takes patched transitive versions, so no critical or high advisory with a patched release remains
+  under `npm audit --omit=dev`. The locked development copy of `nuxt` moves from `3.21.11` to `4.6.4`, so CI builds on
+  Nuxt 4. The `nuxt` peer range stays `^3.21.11 || ^4.6.2`.
+- `package.json` overrides `glob` (key `glob@>=9`) to `^14.0.2` and `minimatch` (key `minimatch@>=7`) to `^11.0.1`,
+  whose fixes ship only in a new major. The keys leave `glob` 7 and `minimatch` 3 alone, which the advisories do not
+  cover and which `test-exclude` 6 needs for `jest --coverage`.
+- `@openreachtech/mentsu-npm-audit-gate` is a development dependency, with the `audit:npm` script and
+  `scripts/stopgap-audit/IGNORED_ADVISORIES.js`. The list holds `deepmerge`, which has no patched release, with its
+  reason and removal condition.
+
 ## 3.0.0
 
 ### Breaking

@@ -12,6 +12,7 @@
     "dev": "npm run cache; nuxt dev",
     "generate": "nuxt generate",
     "start": "nuxt start",
+    "audit:npm": "node node_modules/@openreachtech/mentsu-npm-audit-gate/scripts/npm-audit-gate.js scripts/stopgap-audit/IGNORED_ADVISORIES.js",
     "cache": "node -e \"require('fs').rm('./node_modules/.cache', { recursive: true, force: true }, err => { if (err) console.error(err); console.log('Cache cleared'); })\"",
     "l": "npm run lint",
     "lint": "eslint .",
@@ -39,6 +40,7 @@
     "@openreachtech/eslint-config": "^3.0.2",
     "@openreachtech/jest-constructor-spy": "^1.1.2",
     "@openreachtech/jest-deep-containing": "^1.0.2",
+    "@openreachtech/mentsu-npm-audit-gate": "^0.1.0",
     "@types/jest": "^29.5.14",
     "@vue/test-utils": "^2.5.1",
     "@vue/vue3-jest": "^29.2.6",
@@ -50,5 +52,9 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "whatwg-fetch": "^3.6.20"
+  },
+  "overrides": {
+    "glob@>=9": "^14.0.2",
+    "minimatch@>=7": "^11.0.1"
   }
 }

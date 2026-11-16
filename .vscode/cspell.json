@@ -12,5 +12,8 @@
 
     "softprops",
     "esac"
+  ],
+  "ignoreWords": [
+    "gcqx"
   ]
 }

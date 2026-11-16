@@ -64,6 +64,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.TO_REPO_OF_ORT_PRIVATE }}
         run: npm ci
 
+      - name: 🛡️ npm audit
+        run: npm run audit:npm
+
       - name: 🧵 ESLint
         run: npm run lint
 

@@ -1,16 +1,24 @@
 /**
- * Advisories `npm run audit:npm` lets through until the lockfile no longer reports them.
+ * Advisories `npm run audit:npm` lets through, as a stopgap until a release fixes them.
+ *
+ * Each entry carries its reason and the condition for removing it.
+ * The reason names the code of the dependency that was read to confirm the path is not reached.
+ * An entry whose advisory is no longer reported fails the audit,
+ * so this list cannot outlive the reasons it was written for.
  *
  * @type {Array<NpmAuditType.IgnoredAdvisory>}
+ * @example
+ * const IGNORED_ADVISORIES = [
+ *   {
+ *     id: 'GHSA-xxxx-xxxx-xxxx',
+ *     package: 'example-package',
+ *     path: 'example-parent > example-package',
+ *     reason: 'No patched release exists, and the vulnerable code path is not reached from this repository.',
+ *     removeWhen: 'example-package publishes a release outside the affected range, or the advisory is withdrawn',
+ *   },
+ * ]
  */
 const IGNORED_ADVISORIES = [
-  {
-    id: 'GHSA-gcqx-w48m-w2h4',
-    package: 'deepmerge',
-    path: 'jest > @jest/core > jest-config > deepmerge | nuxt > @nuxt/nitro-server > nitropack > @rollup/plugin-node-resolve > deepmerge',
-    reason: 'No patched release: the advisory covers deepmerge >=4.2.0 <=4.3.1, and 4.3.1 is the latest. The flaw is prototype poisoning through mergeObject() when a source object carries malicious keys. deepmerge is reached by jest-config and by the Rollup node-resolve plugin of nitropack alone, tools that run over this repository\'s own configuration on a developer machine or in CI, so it is not shipped and nothing it merges comes from outside.',
-    removeWhen: 'npm audit on this lockfile no longer reports GHSA-gcqx-w48m-w2h4, after a dependency update brings deepmerge outside <=4.3.1 or drops it from both parents',
-  },
 ]
 
 export default IGNORED_ADVISORIES

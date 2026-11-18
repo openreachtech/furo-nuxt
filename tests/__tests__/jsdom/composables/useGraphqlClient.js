@@ -49,7 +49,9 @@ describe('useGraphqlClient()', () => {
 
     test.each(cases)('Launcher: $params.Launcher.name', ({ params }) => {
       const expected = {
-        capsuleRef: expect.any(Object),
+        capsuleRef: expect.objectContaining({
+          value: expect.any(BaseGraphqlCapsule),
+        }),
         invokeRequestOnEvent: expect.any(Function),
         invokeRequestOnMounted: expect.any(Function),
         invokeRequestWithFormValueHash: expect.any(Function),

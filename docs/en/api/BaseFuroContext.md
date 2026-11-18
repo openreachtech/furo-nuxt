@@ -14,7 +14,6 @@ See [Component Context](https://github.com/openreachtech/furo-nuxt/blob/main/doc
 | `.get:EMIT_EVENT_NAME` | Abstract. Hash of `emit()` event names. Returns `{}` unless overridden. |
 | `#props` | Props passed to the component. |
 | `#componentContext` | The Vue setup context. |
-| `#accessor` | The accessor instance, or `null` when `.get:ContextAccessor` is `null`. |
 | `#get:$` | The accessor instance of this context, or `null` when `.get:ContextAccessor` is `null`. Every access returns the same instance. |
 | `#get:EMIT_EVENT_NAME` | The hash declared by `.get:EMIT_EVENT_NAME`. |
 | `#get:attrs` | `attrs` of the setup context. |

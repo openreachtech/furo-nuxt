@@ -14,6 +14,7 @@ See [Component Context](https://github.com/openreachtech/furo-nuxt/blob/main/doc
 | `.get:ContextAccessor` | Accessor class paired with this context. Returns `null` unless overridden. |
 | `.get:EMIT_EVENT_NAME` | Abstract. Hash of `emit()` event names. Returns `{}` unless overridden. |
 | `.createContextAccessor()` | Takes `{ context }`. Creates an instance of `.get:ContextAccessor` for the context, or returns `null` when `.get:ContextAccessor` is `null`. |
+| `.ensureContextAccessor()` | Takes `{ context }`. Returns the accessor pooled in `.accessorPool` for the context, creating it on the first call. |
 | `#props` | Props passed to the component. |
 | `#componentContext` | The Vue setup context. |
 | `#get:$` | The accessor instance of this context, or `null` when `.get:ContextAccessor` is `null`. Every access returns the same instance. |

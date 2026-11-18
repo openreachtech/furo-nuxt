@@ -1295,5 +1295,58 @@ describe('BaseFuroContext', () => {
           .toBeNull()
       })
     })
+
+    describe('to call .ensureContextAccessor()', () => {
+      test('with itself as context', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+        const spyEnsure = jest.spyOn(BaseFuroContext, 'ensureContextAccessor')
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = context.$
+
+        expect(actual)
+          .toBeInstanceOf(AlphaContextAccessor)
+        expect(spyEnsure)
+          .toHaveBeenCalledTimes(1)
+        expect(spyEnsure)
+          .toHaveBeenCalledWith({
+            context,
+          })
+      })
+    })
+
+    describe('to be the same instance', () => {
+      test('on repeated access', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        expect(context.$)
+          .toBe(context.$)
+      })
+    })
   })
 })

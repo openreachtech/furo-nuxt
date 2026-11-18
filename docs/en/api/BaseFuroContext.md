@@ -9,6 +9,7 @@ See [Component Context](https://github.com/openreachtech/furo-nuxt/blob/main/doc
 
 | member | description |
 | :-- | :-- |
+| `.accessorPool` | `WeakMap` that holds the accessor instance of each context, keyed by the context. |
 | `.create()` | Factory method. Takes `{ props, componentContext }`. |
 | `.get:ContextAccessor` | Accessor class paired with this context. Returns `null` unless overridden. |
 | `.get:EMIT_EVENT_NAME` | Abstract. Hash of `emit()` event names. Returns `{}` unless overridden. |

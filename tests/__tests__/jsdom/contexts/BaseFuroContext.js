@@ -92,143 +92,6 @@ describe('BaseFuroContext', () => {
         })
       })
     })
-
-    describe('to setup properties', () => {
-      describe('#accessor', () => {
-        describe('to be null', () => {
-          /**
-           * @type {Array<{
-           *   params: {
-           *     props: import('vue').ComponentCustomProps
-           *     componentContext: import('vue').SetupContext
-           *   }
-           * }>}
-           */
-          const cases = /** @type {Array<*>} */ ([
-            {
-              params: {
-                props: {
-                  label: 'alpha',
-                },
-                componentContext: {
-                  attrs: {
-                    label: 'first',
-                  },
-                  emit: () => {},
-                  expose: () => {},
-                  slots: {},
-                },
-              },
-            },
-            {
-              params: {
-                props: {
-                  label: 'beta',
-                },
-                componentContext: {
-                  attrs: {
-                    label: 'second',
-                  },
-                  emit: () => {},
-                  expose: () => {},
-                  slots: {},
-                },
-              },
-            },
-          ])
-
-          test.each(cases)('label: $params.props.label', ({ params }) => {
-            const args = {
-              props: params.props,
-              componentContext: params.componentContext,
-            }
-
-            const context = new BaseFuroContext(args)
-
-            expect(context)
-              .toHaveProperty('accessor', null)
-          })
-        })
-
-        describe('to be instance of ContextAccessor', () => {
-          /**
-           * @extends {BaseFuroContextAccessor<*>}
-           */
-          const AlphaContextAccessor = class extends BaseFuroContextAccessor {
-            // noop
-          }
-
-          /**
-           * @extends {BaseFuroContextAccessor<*>}
-           */
-          const BetaContextAccessor = class extends BaseFuroContextAccessor {
-            // noop
-          }
-
-          /**
-           * @type {Array<{
-           *   params: {
-           *     ContextAccessor: typeof BaseFuroContextAccessor<*>
-           *     props: import('vue').ComponentCustomProps
-           *     componentContext: import('vue').SetupContext
-           *   }
-           * }>}
-           */
-          const cases = /** @type {Array<*>} */ ([
-            {
-              params: {
-                ContextAccessor: AlphaContextAccessor,
-                props: {
-                  label: 'alpha',
-                },
-                componentContext: {
-                  attrs: {
-                    label: 'first',
-                  },
-                  emit: () => {},
-                  expose: () => {},
-                  slots: {},
-                },
-              },
-            },
-            {
-              params: {
-                ContextAccessor: BetaContextAccessor,
-                props: {
-                  label: 'beta',
-                },
-                componentContext: {
-                  attrs: {
-                    label: 'second',
-                  },
-                  emit: () => {},
-                  expose: () => {},
-                  slots: {},
-                },
-              },
-            },
-          ])
-
-          test.each(cases)('label: $params.props.label', ({ params }) => {
-            jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
-              .mockReturnValue(params.ContextAccessor)
-
-            const args = {
-              props: params.props,
-              componentContext: params.componentContext,
-            }
-
-            const context = new BaseFuroContext(args)
-
-            expect(context)
-              .toHaveProperty(
-                'accessor',
-                expect.any(params.ContextAccessor)
-              )
-          })
-        })
-      })
-    })
   })
 })
 
@@ -881,7 +744,16 @@ describe('BaseFuroContext', () => {
 })
 
 describe('BaseFuroContext', () => {
-  describe('#createContextAccessor()', () => {
+  describe('.accessorPool', () => {
+    test('to be instance of WeakMap', () => {
+      expect(BaseFuroContext.accessorPool)
+        .toBeInstanceOf(WeakMap)
+    })
+  })
+})
+
+describe('BaseFuroContext', () => {
+  describe('.createContextAccessor()', () => {
     /**
      * @extends {BaseFuroContextAccessor<*>}
      */
@@ -926,15 +798,20 @@ describe('BaseFuroContext', () => {
           },
         })
 
-        const actual = context.createContextAccessor()
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
 
         expect(actual)
           .toBeInstanceOf(params.ContextAccessor)
       })
     })
 
-    describe('to be null', () => {
-      test('with no arguments', () => {
+    describe('to keep the given context', () => {
+      test('with ContextAccessor', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+
         const context = new BaseFuroContext({
           props: {
             alpha: 10001,
@@ -947,10 +824,186 @@ describe('BaseFuroContext', () => {
           },
         })
 
-        const actual = context.createContextAccessor()
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
+
+        expect(actual)
+          .toHaveProperty('context', context)
+      })
+    })
+
+    describe('to be null', () => {
+      test('with no ContextAccessor', () => {
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
 
         expect(actual)
           .toBeNull()
+      })
+    })
+  })
+})
+
+describe('BaseFuroContext', () => {
+  describe('.ensureContextAccessor()', () => {
+    /**
+     * @extends {BaseFuroContextAccessor<*>}
+     */
+    const AlphaContextAccessor = class extends BaseFuroContextAccessor {
+      // noop
+    }
+
+    /**
+     * @extends {BaseFuroContextAccessor<*>}
+     */
+    const BetaContextAccessor = class extends BaseFuroContextAccessor {
+      // noop
+    }
+
+    describe('to return the pooled instance', () => {
+      test('on repeated calls for the same context', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const first = BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+        const second = BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+
+        expect(second)
+          .toBe(first)
+      })
+
+      test('with null for a context without ContextAccessor', () => {
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const first = BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+        const second = BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+
+        expect(first)
+          .toBeNull()
+        expect(second)
+          .toBeNull()
+      })
+    })
+
+    describe('to return a different instance for each context', () => {
+      test('with two contexts', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(BetaContextAccessor)
+
+        const alphaContext = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+        const betaContext = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const alphaAccessor = BaseFuroContext.ensureContextAccessor({
+          context: alphaContext,
+        })
+        const betaAccessor = BaseFuroContext.ensureContextAccessor({
+          context: betaContext,
+        })
+
+        expect(alphaAccessor)
+          .not.toBe(betaAccessor)
+        expect(alphaAccessor)
+          .toHaveProperty('context', alphaContext)
+        expect(betaAccessor)
+          .toHaveProperty('context', betaContext)
+      })
+    })
+
+    describe('to call .createContextAccessor()', () => {
+      test('once for the same context', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+        const spyCreate = jest.spyOn(BaseFuroContext, 'createContextAccessor')
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+        BaseFuroContext.ensureContextAccessor({
+          context,
+        })
+
+        expect(spyCreate)
+          .toHaveBeenCalledTimes(1)
+        expect(spyCreate)
+          .toHaveBeenCalledWith({
+            context,
+          })
       })
     })
   })
@@ -1027,6 +1080,59 @@ describe('BaseFuroContext', () => {
 
         expect(actual)
           .toBeNull()
+      })
+    })
+
+    describe('to call .ensureContextAccessor()', () => {
+      test('with itself as context', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+        const spyEnsure = jest.spyOn(BaseFuroContext, 'ensureContextAccessor')
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = context.$
+
+        expect(actual)
+          .toBeInstanceOf(AlphaContextAccessor)
+        expect(spyEnsure)
+          .toHaveBeenCalledTimes(1)
+        expect(spyEnsure)
+          .toHaveBeenCalledWith({
+            context,
+          })
+      })
+    })
+
+    describe('to be the same instance', () => {
+      test('on repeated access', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        expect(context.$)
+          .toBe(context.$)
       })
     })
   })

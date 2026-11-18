@@ -14,7 +14,7 @@
 | `#props` | コンポーネントに渡された props。 |
 | `#componentContext` | Vue のセットアップコンテキスト。 |
 | `#accessor` | アクセサーのインスタンス。`.get:ContextAccessor` が `null` の場合は `null`。 |
-| `#get:$` | `#accessor` の短縮形。 |
+| `#get:$` | このコンテキストのアクセサーのインスタンス。`.get:ContextAccessor` が `null` の場合は `null`。何度アクセスしても同じインスタンスを返します。 |
 | `#get:EMIT_EVENT_NAME` | `.get:EMIT_EVENT_NAME` が宣言したハッシュ。 |
 | `#get:attrs` | セットアップコンテキストの `attrs`。 |
 | `#get:slots` | セットアップコンテキストの `slots`。 |

@@ -15,7 +15,7 @@ See [Component Context](https://github.com/openreachtech/furo-nuxt/blob/main/doc
 | `#props` | Props passed to the component. |
 | `#componentContext` | The Vue setup context. |
 | `#accessor` | The accessor instance, or `null` when `.get:ContextAccessor` is `null`. |
-| `#get:$` | Shorthand for `#accessor`. |
+| `#get:$` | The accessor instance of this context, or `null` when `.get:ContextAccessor` is `null`. Every access returns the same instance. |
 | `#get:EMIT_EVENT_NAME` | The hash declared by `.get:EMIT_EVENT_NAME`. |
 | `#get:attrs` | `attrs` of the setup context. |
 | `#get:slots` | `slots` of the setup context. |

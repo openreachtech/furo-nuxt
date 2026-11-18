@@ -881,6 +881,15 @@ describe('BaseFuroContext', () => {
 })
 
 describe('BaseFuroContext', () => {
+  describe('.accessorPool', () => {
+    test('to be instance of WeakMap', () => {
+      expect(BaseFuroContext.accessorPool)
+        .toBeInstanceOf(WeakMap)
+    })
+  })
+})
+
+describe('BaseFuroContext', () => {
   describe('#createContextAccessor()', () => {
     /**
      * @extends {BaseFuroContextAccessor<*>}

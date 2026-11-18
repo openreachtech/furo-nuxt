@@ -890,6 +890,112 @@ describe('BaseFuroContext', () => {
 })
 
 describe('BaseFuroContext', () => {
+  describe('.createContextAccessor()', () => {
+    /**
+     * @extends {BaseFuroContextAccessor<*>}
+     */
+    const AlphaContextAccessor = class extends BaseFuroContextAccessor {
+      // noop
+    }
+
+    /**
+     * @extends {BaseFuroContextAccessor<*>}
+     */
+    const BetaContextAccessor = class extends BaseFuroContextAccessor {
+      // noop
+    }
+
+    describe('to be instance of ContextAccessor', () => {
+      const cases = [
+        {
+          params: {
+            ContextAccessor: AlphaContextAccessor,
+          },
+        },
+        {
+          params: {
+            ContextAccessor: BetaContextAccessor,
+          },
+        },
+      ]
+
+      test.each(cases)('ContextAccessor: $params.ContextAccessor', ({ params }) => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(params.ContextAccessor)
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
+
+        expect(actual)
+          .toBeInstanceOf(params.ContextAccessor)
+      })
+    })
+
+    describe('to keep the given context', () => {
+      test('with ContextAccessor', () => {
+        jest.spyOn(BaseFuroContext, 'ContextAccessor', 'get')
+          .mockReturnValue(AlphaContextAccessor)
+
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
+
+        expect(actual)
+          .toHaveProperty('context', context)
+      })
+    })
+
+    describe('to be null', () => {
+      test('with no ContextAccessor', () => {
+        const context = new BaseFuroContext({
+          props: {
+            alpha: 10001,
+          },
+          componentContext: {
+            attrs: {},
+            emit: () => {},
+            expose: () => {},
+            slots: {},
+          },
+        })
+
+        const actual = BaseFuroContext.createContextAccessor({
+          context,
+        })
+
+        expect(actual)
+          .toBeNull()
+      })
+    })
+  })
+})
+
+describe('BaseFuroContext', () => {
   describe('#createContextAccessor()', () => {
     /**
      * @extends {BaseFuroContextAccessor<*>}

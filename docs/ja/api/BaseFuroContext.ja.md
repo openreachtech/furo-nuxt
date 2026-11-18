@@ -12,6 +12,7 @@
 | `.create()` | ファクトリメソッド。`{ props, componentContext }` を受け取ります。 |
 | `.get:ContextAccessor` | このコンテキストと対になるアクセサークラス。オーバーライドしない限り `null` を返します。 |
 | `.get:EMIT_EVENT_NAME` | 抽象メソッド。`emit()` のイベント名のハッシュ。オーバーライドしない限り `{}` を返します。 |
+| `.createContextAccessor()` | `{ context }` を受け取ります。そのコンテキスト向けに `.get:ContextAccessor` のインスタンスを作成します。`.get:ContextAccessor` が `null` の場合は `null` を返します。 |
 | `#props` | コンポーネントに渡された props。 |
 | `#componentContext` | Vue のセットアップコンテキスト。 |
 | `#get:$` | このコンテキストのアクセサーのインスタンス。`.get:ContextAccessor` が `null` の場合は `null`。何度アクセスしても同じインスタンスを返します。 |
